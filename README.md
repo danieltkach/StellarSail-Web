@@ -1,107 +1,46 @@
-# 🚀 Radio Explorer
+# 🚀 Stellar-Sail
 
-A space exploration game featuring realistic radio astronomy mechanics.
+A space sim with a procedurally-generated cockpit, radio-astronomy mechanics, and physics-based flight + landing.
 
-## 🎮 Play the Game
+## ► Play
 
-**[► Download and Play Now!](https://danieltkach.github.io/RadioExplorer-Game/)**
+**[Download and play](https://danieltkach.github.io/StellarSail-Web/)**
 
-## 📥 Installation
+Cross-platform: Windows, Linux (x64 + ARM64), macOS. Runtime is bundled — nothing else to install.
 
-1. Click the download link above
-2. Run `setup.exe`
-3. The game will install and create a desktop shortcut
-4. Future updates install automatically!
-
-## ⚠️ Installation Note
-
-Windows will show a security warning because the app isn't signed 
-(signing costs $400/year and this is a free game!).
-
-**To install:**
-1. Click "More info"
-2. Click "Run anyway"
-
-###NOTE:
-This is safe - it's just because I'm an independent developer. If the game becomes successful I'll be able to afford the signing that costs $400/year. Please consider donating!
-
-## 🎯 Features
+## ✨ Features
 
 - Realistic launch and landing sequences
-- Manual alignment mini-game
-- Physics-based flight controls
-- Procedural audio generation
+- Physics-based flight with drift
+- Procedural audio (cross-platform via OpenAL)
 - Multiple space stations to explore
-
-## 💻 System Requirements
-
-- **OS**: Windows 10/11 (64-bit)
-- **Runtime**: .NET 8 (auto-installs)
-- **Audio**: Sound card recommended for full experience
-
-## 🔧 Current Version
-
-**v0.0.1** - Initial Release
-
-### Changelog
-
-#### v0.0.1 (2025-11-15)
-- Initial public release
-- Launch sequence with system checks
-- Landing sequence with alignment mini-game
-- Flight controls with autopilot
-- Sound effects for all sequences
-
-## ⚠️ Known Issues
-
-- Windows Defender may show a warning (click "More info" → "Run anyway")
-- Game requires Windows (Mac/Linux versions coming soon)
+- Station communication and clearance procedures
 
 ## 🎮 Controls
 
-### Station Menu
-- `V` - Launch ship
+The full controls cheat sheet lives on the [download page](https://danieltkach.github.io/StellarSail-Web/) — collapsible by mode (Flight / Communication / Landing-code / Landing).
 
-### Launch Sequence
-- `F/P/L/N` - System checks
-- `ENTER` - Proceed
-- `ESC` - Abort
+## ⚠️ First launch
 
-### Flight
-- `Q/E` - Frequency
-- `W/A/S/D` - Telescope aim
-- `R` - Toggle telescope
-- `I/J/K/L/U/O` - Thrusters
-- `T` - Autopilot to target
-- `SPACE` - Brake
-- `V` - Land
+The build is unsigned, so:
 
-### Landing Sequence
-- `D/V/A` - Pre-flight checks
-- `J/L/I/K` - Position alignment
-- `U/O` - Height adjustment
-- `ENTER` - Request clearance
+- **Windows** — SmartScreen will warn. Click *More info* → *Run anyway*.
+- **macOS** — Gatekeeper will block. Right-click the app → *Open* → *Open anyway*.
 
-## ☕ Support Development
+Auto-updates handle subsequent launches automatically.
 
-Enjoying Radio Explorer? Consider supporting future development!
+## ☕ Support
 
-**[Buy Me a Coffee](http://buymeacoffee.com/codewitcher)**
+Enjoying Stellar-Sail? **[Buy me a coffee](http://buymeacoffee.com/codewitcher)** — supports keeping the game free, new features, and eventually code signing.
 
-Your support helps me:
-- Keep the game free for everyone
-- Add new features and stations
-- Afford code signing certificates ($400/year) to remove Windows warnings
-- Work on the graphical (pixel-art) version
+## 🔧 Releases
 
-## 📧 Contact
-
-Found a bug? Have feedback? Open an issue on this repo!
+All builds and changelogs: **[GitHub Releases](https://github.com/danieltkach/StellarSail-Web/releases)**.
 
 ## 📜 License
 
-Copyright © 2025. All rights reserved.
+Copyright © 2025–2026. All rights reserved.
 
 ---
 
-**Made with ❤️ and C#**
+Built with C#, .NET 9, and Silk.NET.OpenAL.
