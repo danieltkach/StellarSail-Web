@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Radio Explorer - Download</title>
+        <title>Stellar-Sail - Download</title>
         <style>
         * {
             margin: 0;
@@ -349,20 +349,105 @@
             text-shadow: 0 0 20px #0ff;
             transform: scale(1.2);
         }
+
+        .controls {
+            text-align: left;
+            margin: 40px auto;
+            max-width: 700px;
+            background: rgba(0, 20, 40, 0.8);
+            padding: 30px;
+            border: 1px solid #0ff;
+            border-radius: 10px;
+        }
+
+        .controls h2 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #0ff;
+        }
+
+        .controls-hint {
+            text-align: center;
+            color: #aaa;
+            font-size: 13px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .controls details {
+            margin: 8px 0;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 5px;
+            padding: 8px 14px;
+        }
+
+        .controls details[open] {
+            background: rgba(0, 255, 255, 0.04);
+        }
+
+        .controls summary {
+            cursor: pointer;
+            color: #0ff;
+            font-weight: bold;
+            padding: 4px 0;
+            list-style: none;
+            user-select: none;
+        }
+
+        .controls summary::-webkit-details-marker { display: none; }
+
+        .controls summary::before {
+            content: "▶";
+            font-size: 11px;
+            margin-right: 8px;
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+
+        .controls details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .key-grid {
+            margin-top: 12px;
+            padding: 4px 0;
+        }
+
+        .key-row {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 12px;
+            padding: 6px 0;
+            color: #fff;
+            font-size: 14px;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+        }
+
+        .key-row:last-child { border-bottom: none; }
+
+        .key {
+            color: #0ff;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+        }
+
+        @media (max-width: 520px) {
+            .key-row { grid-template-columns: 1fr; gap: 2px; }
+        }
     </style>
     </head>
     <body>
         <div class="header">
-            <h1>🚀 RADIO EXPLORER 🚀</h1>
+            <h1>🚀 STELLAR-SAIL 🚀</h1>
             <p class="subtitle">Navigate the cosmos. Master the landing. Explore the unknown.</p>
 
-            <a href="setup.exe" class="download-btn">⬇ DOWNLOAD GAME</a>
+            <a href="https://github.com/danieltkach/StellarSail-Web/releases/latest" class="download-btn">⬇ DOWNLOAD GAME</a>
 
-            <p class="version">Current Version: 0.0.4 | Size: ~2MB | Auto-updates enabled</p>
+            <p class="version">Current Version: 0.1.0 | Cross-platform | Auto-updates enabled</p>
         </div>
 
         <div class="featured-image">
-            <img src="screenshots/wide cockpit.jpeg" alt="Radio Explorer In-Game Cockpit View">
+            <img src="screenshots/wide cockpit.jpeg" alt="Stellar-Sail In-Game Cockpit View">
             <p class="featured-label">◆ In-Game Cockpit Interface ◆</p>
         </div>
 
@@ -379,12 +464,72 @@
                 </ul>
             </div>
 
+            <div class="controls">
+                <h2>🎮 Controls</h2>
+                <p class="controls-hint">The game runs in modes — some keys do different things depending on which mode you're in.</p>
+
+                <details open>
+                    <summary>Flight (default)</summary>
+                    <div class="key-grid">
+                        <div class="key-row"><span class="key">Shift+Z / Shift+X</span><span>Switch left panel: Engines / Ship Status</span></div>
+                        <div class="key-row"><span class="key">T</span><span>Telescope on / off (also unlocks target)</span></div>
+                        <div class="key-row"><span class="key">L</span><span>Lock detected target / unlock</span></div>
+                        <div class="key-row"><span class="key">Enter</span><span>Toggle autopilot (when locked)</span></div>
+                        <div class="key-row"><span class="key">W / S</span><span>Telescope polar up / down</span></div>
+                        <div class="key-row"><span class="key">A / D</span><span>Telescope azimuth left / right</span></div>
+                        <div class="key-row"><span class="key">, / .</span><span>Frequency −1 / +1 MHz</span></div>
+                        <div class="key-row"><span class="key">1 – 6</span><span>Toggle engine N on / off</span></div>
+                        <div class="key-row"><span class="key">Space (hold)</span><span>Thrust</span></div>
+                        <div class="key-row"><span class="key">Backspace (hold)</span><span>Brake</span></div>
+                        <div class="key-row"><span class="key">↑ / ↓</span><span>Ship polar (non-AUTO mode)</span></div>
+                        <div class="key-row"><span class="key">← / →</span><span>Ship azimuth (non-AUTO mode)</span></div>
+                        <div class="key-row"><span class="key">H</span><span>Hail locked station</span></div>
+                        <div class="key-row"><span class="key">I</span><span>Show locked / detected object info</span></div>
+                        <div class="key-row"><span class="key">Shift+L</span><span>Begin landing approach</span></div>
+                        <div class="key-row"><span class="key">End</span><span>Quit game</span></div>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Communication</summary>
+                    <div class="key-grid">
+                        <div class="key-row"><span class="key">Esc</span><span>Close channel, back to Flight</span></div>
+                        <div class="key-row"><span class="key">H</span><span>Send hail / answer incoming</span></div>
+                        <div class="key-row"><span class="key">1 – 4</span><span>Pick dialogue response</span></div>
+                        <div class="key-row"><span class="key">Shift+L</span><span>Initiate landing code entry (when cleared)</span></div>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Landing-code entry</summary>
+                    <div class="key-grid">
+                        <div class="key-row"><span class="key">A–Z, 0–9</span><span>Type a character (5 total)</span></div>
+                        <div class="key-row"><span class="key">Backspace</span><span>Delete last character</span></div>
+                        <div class="key-row"><span class="key">Enter</span><span>Submit code</span></div>
+                        <div class="key-row"><span class="key">Esc</span><span>Cancel back to Communication</span></div>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Landing</summary>
+                    <div class="key-grid">
+                        <div class="key-row"><span class="key">I / K</span><span>Forward / Backward (Y)</span></div>
+                        <div class="key-row"><span class="key">J / L</span><span>Left / Right (X)</span></div>
+                        <div class="key-row"><span class="key">U / O</span><span>Up / Down (Z)</span></div>
+                        <div class="key-row"><span class="key">W / S</span><span>Pitch up / down</span></div>
+                        <div class="key-row"><span class="key">A / D</span><span>Roll left / right</span></div>
+                        <div class="key-row"><span class="key">Q / E</span><span>Yaw left / right</span></div>
+                        <div class="key-row"><span class="key">Esc</span><span>Abort landing</span></div>
+                    </div>
+                </details>
+            </div>
+
             <div class="requirements">
                 <h3>💻 System Requirements</h3>
-                <p><strong>OS:</strong> Windows 10/11 (64-bit)</p>
-                <p><strong>Runtime:</strong> .NET 9 Desktop Runtime (installs
-                    automatically)</p>
-                <p>Send me a message if you'd like to play it on MacOS or Linux!</p>
+                <p><strong>Windows:</strong> 10 / 11 (64-bit)</p>
+                <p><strong>Linux:</strong> x86-64 or ARM64 (Raspberry Pi 4/5)</p>
+                <p><strong>macOS:</strong> Apple Silicon or Intel</p>
+                <p><strong>Runtime:</strong> bundled — nothing else to install.</p>
             </div>
 
             <div class="note">
@@ -424,7 +569,7 @@
 
             <div class="support">
                 <h2>☕ Support Development</h2>
-                <p>Enjoying Radio Explorer? Your support helps keep this game free and enables future development!</p>
+                <p>Enjoying Stellar-Sail? Your support helps keep this game free and enables future development!</p>
 
                 <a href="http://buymeacoffee.com/codewitcher" target="_blank" class="support-btn">☕ Buy Me a Coffee</a>
 
@@ -438,9 +583,9 @@
             </div>
 
             <footer>
-                <p>Built with C# and NAudio</p>
-                <p><a href="https://github.com/danieltkach/RadioExplorer-Game"
-                        class="github-link">View on GitHub</a></p>
+                <p>Built with C# and Silk.NET.OpenAL</p>
+                <p><a href="https://github.com/danieltkach/StellarSail-Web/releases"
+                        class="github-link">All Releases</a></p>
             </footer>
         </div>
 
