@@ -8,6 +8,35 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.6.2 — 2026-05-14
+
+### Added
+
+- **Departure clearance comms.** On the launch pad, press **H** to hail the
+  tower and run a short dialog with the station's ATC. Until clearance is
+  granted, the envelope hint reads `AWAITING CLEARANCE — [H] HAIL TOWER`
+  and Enter refuses to launch. Mirror of the landing-side clearance flow,
+  with per-station personality flavor.
+
+### Changed
+
+- **Ship no longer auto-parks after disembark.** When you shut down and
+  step off the ship, it stays on the atrium pad where you touched down.
+  Walk to the hangar and tell Vance ("Bring my ship into the bay") to
+  stow it. Returning trips work the same way in reverse — the move
+  between bay and atrium is always explicit.
+
+### Fixed
+
+- Messages panel no longer overflows past its right border. Long lines
+  are truncated with an ellipsis instead of bleeding into adjacent panels.
+- Identical consecutive messages are dropped (no more four-deep repeats
+  of "Cannot launch — awaiting departure clearance from tower.").
+- Station map view gains a matching bottom frame line — the layout now
+  mirrors the top.
+
+---
+
 ## v0.6.1 — 2026-05-13
 
 ### Fixed
