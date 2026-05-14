@@ -306,7 +306,7 @@ lineage but is the same codebase that became Stellar-Sail in v0.1.0.
 
 - **Landing HUD panel** — bespoke instrument cluster for active descent:
   compass / pitch ladder / roll indicator / altimeter / pad bullseye, all
-  rendered in the centre column when in landing mode.
+  rendered in the center column when in landing mode.
 - **Landing input system extracted** from the general flight controls into
   its own dedicated handler. Keeps the descent control surface clean and
   separate from free-flight inputs.
@@ -362,7 +362,7 @@ lineage but is the same codebase that became Stellar-Sail in v0.1.0.
 - **Sound providers** for engine, mode switches, lock/unlock, proximity
   warnings.
 - **Console display framework** — coordinate-based panel rendering with
-  cursor positioning + colour control.
+  cursor positioning + color control.
 
 ### Foundation · late October 2025
 
