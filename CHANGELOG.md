@@ -8,6 +8,42 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.6.5 — 2026-05-14
+
+### Added
+
+- **Ops Center is now a real detail view.** Walk into Ops from the
+  station map and dispatcher *Dax* offers three procedurally-generated
+  cargo-haul listings. Each lists a destination station, the cargo
+  description, and a payment that scales with distance (+ a small
+  random bonus). Accept one with `[1]`, `[2]`, or `[3]`; only one
+  contract active at a time. The mission board re-rolls every time
+  you re-enter Ops.
+- **Cargo-haul completion on touchdown.** Land at the destination
+  station and the payment is credited to your account automatically.
+  Crashes don't qualify — destroyed ships don't deliver cargo. The
+  active contract persists across saves.
+
+### Fixed
+
+- **Cockpit panel-rendering pass.** The transition from launch pad to
+  the departure-comms screen was leaking `AWAITING CLEARANCE — [H]
+  HAIL TOWER` text into the comm panel's header line. Root cause: the
+  `Draw()` call on a panel that takes over a shared cockpit slot
+  doesn't clear leftover cells the new panel doesn't touch. Fixed at
+  the source plus three more transition points found in the same
+  sweep (LaunchPad → Launch, Landing → Communication via abort,
+  Launch-crash → LandingShutdown).
+
+### Changed
+
+- **Project-wide spelling pass to American English.** All British
+  spellings (`colour`, `centre`, `cancelled`, etc.) replaced with the
+  American forms. One player-visible string changed
+  (`Landing approach cancelled` → `canceled`); the rest were comments.
+
+---
+
 ## v0.6.4 — 2026-05-14
 
 ### Added
