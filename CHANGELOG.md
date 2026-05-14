@@ -8,6 +8,30 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.6.6 — 2026-05-15
+
+### Added
+
+- **Data Library is now a real detail view.** Walk in from the
+  station map and browse three categories with `[1]`/`[2]`/`[3]`:
+  - **Star Charts** — six short author-written region notes covering
+    the Belt, the North/South/East/West quadrants, and the Beacon Pair.
+  - **Lore** — seven backstory entries about the Merchant Pact, the
+    pilot guilds, the abandoned relay, the long-haul trade, the
+    Founding, common cargo, and the credit (¤) system.
+  - **Logs** — your personal logbook, auto-built from your completed
+    contracts and the objects you've discovered. Fills as you play.
+- Navigation: `↑`/`↓` (or `W`/`S`) move the entry selection;
+  `PgUp`/`PgDn` (or `J`/`K`) scroll a long body; `E` exits.
+
+### Changed
+
+- **Cargo-haul completions are now human-readable in your logbook.**
+  Completed contracts log as `Cargo haul A → B — 247¤` instead of as
+  opaque GUIDs, so the Logs view actually means something.
+
+---
+
 ## v0.6.5 — 2026-05-14
 
 ### Added
