@@ -235,5 +235,88 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## Pre-release development (2025-10 → 2026-05)
+
+The project began life as **CockpitUITest**, a prototype console-based space
+sim exploring radio-telescope simulation, realistic ship navigation, and
+atmospheric landing mechanics. The work below predates the public release
+lineage but is the same codebase that became Stellar-Sail in v0.1.0.
+
+### Cross-platform audio · May 2026
+
+- Audio backend migrated from NAudio (Windows-only) to **Silk.NET.OpenAL**.
+  Game now runs identically on Windows, Linux, and macOS. Final prep before
+  the first public release.
+
+### Landing HUD · December 2025
+
+- **Landing HUD panel** — bespoke instrument cluster for active descent:
+  compass / pitch ladder / roll indicator / altimeter / pad bullseye, all
+  rendered in the centre column when in landing mode.
+- **Landing input system extracted** from the general flight controls into
+  its own dedicated handler. Keeps the descent control surface clean and
+  separate from free-flight inputs.
+
+### Architecture refactors · late Nov – early Dec 2025
+
+- **Telescope system** extracted into its own module.
+- **Comms system** promoted to a first-class engine system (dialogues, ATC,
+  permission states, dialog-tree JSON files).
+- **Multi-stage input system refactor** — per-mode input dispatch so each
+  control scheme lives in its own file.
+- **Border panel system** for consistent bordered UI windows.
+- **Project folder structure** reorganised by domain (Panels / Systems /
+  Input / Controllers / World / Audio / Communication).
+
+### Engine and resource model · late November 2025
+
+- **Engines as first-class objects** with activation states + heat damage
+  + per-engine fuel draw. Six engines per ship, individually controllable.
+- **Fuel efficiency model** — telescope gain, engine activity, and other
+  ship systems all draw from a shared fuel/power budget.
+- **Spatial scanner layout struct** — codifies the radar's geometric
+  layout for cleaner per-frame rendering.
+- **Ship status fields** (position, speed, propulsion state, info readouts).
+
+### Navigation and instruments · mid–late November 2025
+
+- **2D navigation** with realistic propulsion physics (acceleration,
+  inertia, momentum-preserved attitudes).
+- **Cockpit animation** — radar sweep, telescope panel pulses, scanner
+  twinkle stars.
+- **Dashboard + info panel** with live position / heading / velocity
+  readouts.
+- **Spatial scanner (radar)** with type-coded contact glyphs and
+  proximity discovery.
+- **Comms beat** introduced — radio communication with stations as a
+  prelude to the eventual full comms system.
+
+### Core ship mechanics · mid November 2025
+
+- **Lock-on-target controls** — first working version of "point at a thing,
+  press L to lock, fly toward it".
+- **Ships factory** + state system.
+- **View manager** — cockpit view vs station view as switchable contexts.
+- **Initial input system** with dedicated key handlers.
+- **Landing sequence (v1)** — first iteration of touchdown logic.
+
+### Audio framework · early November 2025
+
+- **Tone generator** synthesising audio at runtime instead of relying on
+  pre-recorded clips. Foundation for the radio-telescope's
+  source-driven audio later.
+- **Sound providers** for engine, mode switches, lock/unlock, proximity
+  warnings.
+- **Console display framework** — coordinate-based panel rendering with
+  cursor positioning + colour control.
+
+### Foundation · late October 2025
+
+- Initial project scaffold + game loop.
+- **Story builder** with multi-ending support — narrative system seeded
+  before any flight mechanics existed.
+
+---
+
 [Project on GitHub](https://github.com/danieltkach/StellarSail-Web) ·
 Built with C# / .NET 9 / Silk.NET / Velopack.
