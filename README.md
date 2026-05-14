@@ -35,7 +35,10 @@ Enjoying Stellar-Sail? **[Buy me a coffee](http://buymeacoffee.com/codewitcher)*
 
 ## 🔧 Releases
 
-All builds and changelogs: **[GitHub Releases](https://github.com/danieltkach/StellarSail-Web/releases)**.
+All builds: **[GitHub Releases](https://github.com/danieltkach/StellarSail-Web/releases)**.
+
+Detailed version history (from the project's first commit in October 2025
+through today): **[CHANGELOG.md](./CHANGELOG.md)**.
 
 ## 📜 License
 
