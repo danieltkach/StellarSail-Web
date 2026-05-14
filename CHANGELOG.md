@@ -8,6 +8,31 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.6.3 — 2026-05-14
+
+### Added
+
+- **Fuel Depot is now a real detail view.** Press Enter on the Fuel node
+  from the station map to walk into the depot. Attendant *Mara* greets
+  you with flavor that depends on the station's price tier (cheap,
+  mid-range, or surcharge), and the panel shows your tank gauge, your
+  credits, and the per-unit price. Numbered actions top the tank up to
+  25/50/75/100%; if your credits don't cover the full top-up, Mara
+  fills as much as you can afford and tells you the new tank level.
+- **Per-station fuel pricing.** Each station now has a stable, distinct
+  fuel price in the range `0.30¤..1.00¤ per unit`, derived
+  deterministically from its name (no save-game footprint). The
+  difference between cheapest and dearest is over 3×, so a full tank
+  ranges from 300¤ to 1000¤.
+
+### Fixed
+
+- Station-map view's outer border no longer collides with the bottom
+  nav hint — the panel grew by one row so the frame line, hint, and
+  rectangle border each sit on their own row.
+
+---
+
 ## v0.6.2 — 2026-05-14
 
 ### Added
