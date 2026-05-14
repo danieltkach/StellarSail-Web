@@ -8,6 +8,29 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.6.7 — 2026-05-15
+
+### Added
+
+- **Trading Post is now a real detail view** — completing the set; all
+  six station modules now have full panels. Broker *Quill* shows a
+  market quote table for five cargo items (Fuel Cells, Machine Parts,
+  Biocultures, Medical Supplies, Scrap Metal). Each row lists the
+  station's per-unit buy price (station → you), sell price (you →
+  station), and how many of that item you're carrying.
+- **Per-station, per-item pricing.** Base prices fall in `8¤..60¤`,
+  derived from a station+item hash, with a 10% spread between buy and
+  sell. Each station naturally favors different items — that's what
+  makes buy-low-sell-high routes viable.
+- **Cargo hold inventory.** Pilot now has a `CargoHold` keyed by item
+  type; save schema rounds it across sessions. Older saves load
+  cleanly with an empty hold.
+- Trading controls: `↑`/`↓` highlight item; `B` buys 1, `Shift+B`
+  buys 10; `S` sells 1, `Shift+S` sells 10; `E` exits. Partial
+  buys/sells if credits or stock run short.
+
+---
+
 ## v0.6.6 — 2026-05-15
 
 ### Added
