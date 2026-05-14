@@ -8,6 +8,32 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.6.4 — 2026-05-14
+
+### Added
+
+- **Repair Bay is now a real detail view.** Press Enter at the Repair
+  node on the station map to walk into the welding shop. Welder *Greta*
+  shows the hull integrity gauge (color-shifted by damage tier),
+  current credits, and a per-station repair price. Actions [1]/[2]/[3]/[4]
+  weld the hull back to 25/50/75/100% integrity; if credits run short,
+  Greta does as much as the money will buy and tells you the new
+  integrity level.
+- **Per-station repair pricing.** Each station has a stable cost in the
+  range `2.00¤..5.00¤ per damage-point`, derived from a different hash
+  seed than fuel pricing — so a cheap-fuel port is not automatically a
+  cheap-repair port. A 100-damage full repair therefore ranges from
+  200¤ to 500¤.
+
+### Changed
+
+- **Project-wide spelling pass to American English.** All British
+  spellings (`colour`, `centre`, `cancelled`, etc.) replaced with the
+  American forms. One player-visible string changed
+  (`Landing approach cancelled` → `canceled`); the rest were comments.
+
+---
+
 ## v0.6.3 — 2026-05-14
 
 ### Added
