@@ -8,6 +8,18 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.6.8 — 2026-05-15
+
+### Removed
+
+- **Dead `ServiceDetail` code dropped.** The shared "coming soon" stub
+  that early builds used for the five non-Hangar station services had
+  zero callers after v0.6.7 shipped the last real detail view. The
+  panel, input system, control mode, and all references are gone —
+  ~170 lines lighter, behavior unchanged.
+
+---
+
 ## v0.6.7 — 2026-05-15
 
 ### Added
