@@ -8,6 +8,26 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.7.4 — 2026-05-15
+
+### Added
+
+- **PDA Navigation Calculator** — a fifth tab. Lists your charted
+  targets (home + everything in your DiscoveredObjects); for the
+  highlighted target it shows distance, the **required** azimuth and
+  polar to point the ship at it, your **current** azimuth and polar,
+  and the **signed shortest turn** to get from one to the other.
+  - The Az convention matches the game: `0°` points to `+Y` (north),
+    increasing clockwise; polar is `-90°` straight down, `+90°`
+    straight up.
+  - `↑`/`↓` (or `W`/`S`) pick the target inside the Nav Calc tab.
+    Same keys still scroll on other tabs.
+- This is a **calculator, not a compass needle.** It doesn't reveal
+  any uncharted positions and it doesn't auto-steer — it just does
+  the atan2 math so the pilot can actually point the ship.
+
+---
+
 ## v0.7.3 — 2026-05-15
 
 ### Fixed
