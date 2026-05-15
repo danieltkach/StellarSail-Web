@@ -8,6 +8,22 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.7.3 — 2026-05-15
+
+### Fixed
+
+- **Empty radar after flying.** With the world expanded to 624 objects
+  spread across `±5000 km`, the old `600 km` scanner range left the
+  radar effectively empty everywhere except right next to home —
+  expected object count inside the radar sphere was about half an
+  object. Bumped to `3000 km`, restoring the dense radar feel.
+- **`?` blips not pulsing when stationary.** The scanner only refreshed
+  on ship motion, so unknown blips appeared frozen if the pilot wasn't
+  moving. Pulse animation now runs every frame and only actually writes
+  when the bright/dim phase flips (~2 writes/sec per blip).
+
+---
+
 ## v0.7.2 — 2026-05-15
 
 ### Added
