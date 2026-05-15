@@ -8,6 +8,24 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.7.8 — 2026-05-15
+
+### Fixed
+
+- **"All question marks on the radar" — root cause finally found.**
+  `ContactInfo.GetRadarSymbol`'s `switch` on `Object.Type` was written
+  before the v0.7.0 new types existed; for `Comet`, `BlackHole`,
+  `Wreck`, `Anomaly`, `Beacon`, `Derelict`, `IceField`, and
+  `RadioCloud`, it fell through to `'?'`. So even objects flagged
+  `AlwaysVisible` rendered as `?` on the radar — they *were* being
+  treated as known, but their glyph happened to be `?`, exactly the
+  same character used for unknown blips. The discovery gate was
+  never the bug. Added the eight new types to the switch so they
+  render with their type-default glyph (`☄`, `●`, `✕`, `✦`, `⚐`,
+  `⌬`, `❄`, `≋`) at close range.
+
+---
+
 ## v0.7.7 — 2026-05-15
 
 ### Changed
