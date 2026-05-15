@@ -8,6 +8,35 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.7.0 — 2026-05-15
+
+### Added
+
+- **150 new objects in the world** (224 → 374 total), with explicit
+  density across the ZX and ZY planes — 87 of the new ones placed
+  with |Z| ≥ 2000, so the radar isn't a flat equatorial belt anymore.
+- **Mixed visibility.** New `AlwaysVisible` flag on each space object.
+  When true, the scanner shows the real icon + type-coded color
+  regardless of discovery state. When false, the existing
+  discovery-gated behavior applies (a pulsing `?` until you fly
+  close enough). The 150 new objects split exactly 50/50 — half
+  visible-from-start, half hidden-until-proximity.
+- **Eight new object types.** Each gets a distinct icon + color:
+  - Comet (`☄`, cyan)
+  - Black Hole (`●`, dark red)
+  - Wreck (`✕`, dark yellow)
+  - Anomaly (`✦`, green)
+  - Beacon (`⚐`, white)
+  - Derelict (`⌬`, dark gray)
+  - Ice Field (`❄`, dark cyan)
+  - Radio Cloud (`≋`, dark green)
+- **Distinct discovery message for hidden objects.** First encounter
+  with a previously-`?` object now logs as `DISCOVERED: <name>`
+  (vs the existing `INFO ACQUIRED: <name>` for pre-charted objects)
+  — louder, marks the moment.
+
+---
+
 ## v0.6.9 — 2026-05-15
 
 ### Fixed
