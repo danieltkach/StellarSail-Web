@@ -8,6 +8,26 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.7.5 — 2026-05-15
+
+### Fixed
+
+- **Unknown blips looked identical to known objects.** The pulse's dim
+  phase used `◌` (U+25CC DOTTED CIRCLE), which renders the same as
+  `○` (U+25CB WHITE CIRCLE) — the glyph the scanner uses for known
+  objects at medium/far range bands. So a radar full of mixed knowns
+  and unknowns read as 100% question marks. Pulse is now color-only;
+  `?` stays `?` in both phases, with the per-object hashed color
+  flashing bright → dim.
+- **Radio telescope header rows blank after takeoff.** The panel uses
+  differential paint with cached trackers (`_lastFreq` etc.); after
+  the `Console.Clear` in `HandoffToFlight`, the cached values still
+  matched current state, so all four header rows (FREQ / BW / GAIN /
+  SNR) silently skipped redraw. Added `RadioTelescopePanel.ForceRedraw`
+  that resets the trackers, and switched the two callers to use it.
+
+---
+
 ## v0.7.4 — 2026-05-15
 
 ### Added
