@@ -8,6 +8,45 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.8.0 — 2026-05-15
+
+### Added — discovery payoffs
+
+Discovery is no longer a flat "INFO ACQUIRED" log entry. First
+proximity contact with an unknown object now grants a per-type
+reward, so chasing any `?` becomes a real decision.
+
+| Type | Payoff |
+|---|---|
+| Comet | +25¤ "scientific data" |
+| Wreck | salvage 1–3 random cargo units |
+| Derelict | salvage 3–8 random cargo units |
+| Anomaly | +1 intel point |
+| Beacon | reveals the nearest still-hidden object within 1500 km onto your chart — "Beacon X transmits coordinates of Y" |
+| Pulsar | +10¤, frequency catalogued |
+| Black Hole | +50¤ + 2 intel — **but** hull stress: −5% (capped) |
+| Station | +5¤ |
+| Others | +5¤ generic chart bonus |
+
+AlwaysVisible objects (charted from the start) still log the older
+`INFO ACQUIRED` line with no payout — they weren't actually
+discovered.
+
+### Added
+
+- **Intel points** — a new resource on the pilot, reserved for the
+  future puzzle/intel-exchange chart-unlock system. Accumulates from
+  anomaly and black-hole discoveries; shows on the PDA Cargo tab
+  below your credits. Save schema bumped to round-trip it; older
+  saves load with 0.
+
+### Notes
+
+- Salvage rolls are seeded on the object's name, so a given wreck
+  always drops the same loot (helps debugging and would-let-you-replay).
+
+---
+
 ## v0.7.9 — 2026-05-15
 
 ### Changed
