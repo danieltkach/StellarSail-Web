@@ -8,6 +8,36 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.7.1 — 2026-05-15
+
+### Added
+
+- **PDA — pilot data assistant.** Press `P` in Flight to open. Three
+  tabs:
+  - **Contract** — your active cargo haul: origin, destination,
+    cargo description, payment, plus a navigation note about
+    finding the destination on a star chart.
+  - **Cargo** — your hold inventory by item type, plus current credits.
+  - **Logbook** — completed contracts (human-readable) + discovered
+    objects (alphabetical). Scrolls with `PgUp`/`PgDn`.
+  - Charts tab arrives in v0.7.2 — for now the PDA Contract tab tells
+    you to consult it once it ships.
+- **250 more objects in the world** (374 → 624 total). Same 50/50
+  known/hidden split, same ZX/ZY profile (118 of 250 with |Z| ≥ 2000).
+  The cube now reads as genuinely populated.
+
+### Changed
+
+- **Unknown radar blips now have per-object colors and a stronger
+  pulse.** Each `?` blip is hashed to one of six accent color pairs
+  (cyan, magenta, green, yellow, red, white) keyed off the object's
+  name. Distance is no longer encoded in unknown-blip color — that's
+  reserved for known blips. The radar reads as a varied chromatic
+  field instead of a three-band gradient. Pulse cadence raised from
+  1 Hz to ~1.4 Hz so the heartbeat is clearer.
+
+---
+
 ## v0.7.0 — 2026-05-15
 
 ### Added
