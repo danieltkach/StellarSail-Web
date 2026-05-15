@@ -8,6 +8,33 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.8.1 — 2026-05-15
+
+### Added
+
+- **Tab-cycle target selection.** Press `Tab` in Flight to cycle
+  through visible radar contacts, sorted by distance (nearest first).
+  The selected target gets a static `> · <` yellow bracket — distinct
+  from the animated lock brackets. `L` locks the *selected* target
+  directly, bypassing the frequency-tuning ceremony, so the lock no
+  longer feels random. A message confirms what you're about to lock
+  before you press `L`.
+- The original frequency-based lock path is preserved as a fallback
+  for when nothing is Tab-selected. Comms hailing and radio
+  signal-hunting still work as before.
+
+### Fixed
+
+- **Locked object reverted to `?` after flying past and back.** When
+  `L` locked an object, the scanner only repainted on the next ship
+  motion — so a stationary pilot kept seeing the stale unknown blip
+  even though the object was now known. Lock now triggers a scanner
+  redraw immediately. Same defensive redraw added to proximity
+  discovery so newly-rewarded discoveries flip to their real glyph
+  in lock-step with the reward message.
+
+---
+
 ## v0.8.0 — 2026-05-15
 
 ### Added — discovery payoffs
