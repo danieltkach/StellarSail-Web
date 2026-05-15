@@ -8,6 +8,20 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.7.6 — 2026-05-15
+
+### Changed
+
+- **Per-object blink rate for unknown radar blips.** Each `?` now has
+  its own pulse period, hashed from the object's name into one of
+  twelve discrete rates spread across `0.4..1.6 s`. Neighboring blips
+  beat noticeably out of sync, so the radar looks like a field of
+  independent blinking lights instead of one synchronized strobe.
+  The period hash is seeded separately from the color hash, so an
+  object's color and blink rate don't correlate.
+
+---
+
 ## v0.7.5 — 2026-05-15
 
 ### Fixed
