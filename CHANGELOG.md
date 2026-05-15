@@ -8,6 +8,23 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.7.9 — 2026-05-15
+
+### Changed
+
+- **"Mostly question marks near home" — backfilled the originals.**
+  v0.7.8 fixed the new-type icon rendering, but the radar near home
+  still looked sparse because the 224 pre-v0.7.0 objects had no
+  `alwaysVisible` field at all and defaulted to false. With only the
+  400 newer objects split 50/50, the global ratio was 31% visible /
+  69% hidden — and the originals dominate the near-home zone where
+  the pilot spawns. Flipped roughly half the originals to
+  `alwaysVisible: true` (home station forced true unconditionally).
+  New global ratio is ~47% visible / 53% hidden, and the count of
+  visible objects within 3000km of origin rose from 23 to 62.
+
+---
+
 ## v0.7.8 — 2026-05-15
 
 ### Fixed
