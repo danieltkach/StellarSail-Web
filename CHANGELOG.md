@@ -8,6 +8,30 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.7.2 — 2026-05-15
+
+### Added
+
+- **PDA Charts tab.** Press `P` in Flight, then `[4]`, for a top-down
+  2D map of the slice of the world you've actually charted. Home is
+  always marked; every other entry is something you discovered by
+  flying close to it. Stations get a short name label; everything else
+  is icon-only. Your ship sits on the chart as a white `✦`.
+- **Charts is deliberately incomplete.** Nothing auto-appears just
+  because it exists in the world. Mission acceptance does *not* reveal
+  the destination — knowing the name isn't knowing the position.
+  Future releases will add intel-exchange paths (riddles, NPC
+  dialogs, side-missions) for unlocking chart entries by gameplay
+  other than direct proximity.
+
+### Changed
+
+- **Contract tab's navigation line** now reflects the charted state:
+  if the destination is on your chart it says so; if not, it tells
+  you you'll need to discover it or earn intel.
+
+---
+
 ## v0.7.1 — 2026-05-15
 
 ### Added
