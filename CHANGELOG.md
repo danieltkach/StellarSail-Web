@@ -8,6 +8,28 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.7.7 — 2026-05-15
+
+### Changed
+
+- **Multi-color blink patterns for unknown radar blips.** Each `?`
+  blip now cycles through a hashed pattern of 1–5 color slots.
+  Slots can be any of 11 palette colors, or blank (the blip
+  disappears for that fraction of its cycle). Pattern length and
+  per-slot colors are independent hashes of the object name, so
+  adjacent blips look genuinely different — one might be a steady
+  cyan, another flashes red/yellow/red/yellow, another vanishes
+  briefly. Old 6-color bright/dim pulse retired.
+
+### Added (diagnostic)
+
+- **Position logged on save and load.** F2 now reports
+  `Game saved (pos X, Y, Z).`; Resume reports
+  `Save loaded (pos X, Y, Z, mode M).` Helps verify whether a
+  reported "came back at origin" bug is a save bug or a load bug.
+
+---
+
 ## v0.7.6 — 2026-05-15
 
 ### Changed
