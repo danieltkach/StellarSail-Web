@@ -8,6 +8,20 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.8.2 — 2026-05-15
+
+### Changed
+
+- **Tab-cycle target selection is now scoped to the inner radar ring.**
+  Only contacts within `1000 km` (1/3 of the current `3000 km` radar
+  range) are eligible for the selection bracket. Far-rim blips stay
+  reachable via the radio/frequency lock path, but `Tab` is now a
+  "things I can fly to right now" tool — not "everything visible on
+  the radar." If nothing is in range, the messages panel says
+  `No contacts within 1000 km — fly closer.` instead of doing nothing.
+
+---
+
 ## v0.8.1 — 2026-05-15
 
 ### Added
