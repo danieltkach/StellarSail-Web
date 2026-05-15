@@ -8,6 +8,25 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.6.9 — 2026-05-15
+
+### Fixed
+
+- **Takeoff without clearance.** ATC clearance was a session-sticky
+  flag — once you got cleared at any station, the next takeoff from
+  any other station also passed the gate without hailing the tower.
+  Clearance now invalidates on every successful touchdown and again
+  on a successful ascent.
+- **Pilot ending up far from station after launch.** A unit mismatch
+  in the Launch physics layer meant the 500m altimeter readout was
+  integrating as 500 km in world coordinates — plus a few seconds of
+  horizontal wind drift, the pilot dropped out of Launch hundreds of
+  km from their origin station. Fixed by snapping the ship to a clean
+  post-launch state (≈100m above origin, velocity zero) at handoff;
+  same as what `LandingSystem` already did at touchdown.
+
+---
+
 ## v0.6.8 — 2026-05-15
 
 ### Removed
