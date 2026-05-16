@@ -8,6 +8,25 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.9.2 — 2026-05-16
+
+### Fixed
+
+- **Nav Calc RPN calculator was painting past the panel bottom.** The
+  layout placed the input + status 5 rows past the body, so anything
+  you typed went off-screen — the "I can't type" symptom was actually
+  "your input is visible but in the gutter." PDA panel bumped from 29
+  to 32 rows, calculator stack reduced from 4 to 2, calc starts right
+  under the formulas. Input + status now sit safely inside the body.
+- **Esc now clears the error first.** Two-stage: pressing Esc with an
+  error/result on the status line clears that and stays focused.
+  Pressing Esc again (status empty) leaves calc focus like before.
+- **Typing or backspacing clears a stale error.** Any character
+  appended or removed wipes Status. Moving forward in your expression
+  doesn't have to step over the previous mistake.
+
+---
+
 ## v0.9.1 — 2026-05-16
 
 ### Fixed
