@@ -8,6 +8,27 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.9.8 — 2026-05-16
+
+### Fixed — empty engine / system rows on the shutdown panel
+
+Reported from a screenshot: the **POST-LANDING SHUTDOWN** panel showed
+its `ENGINES (1-6):` and `SYSTEMS (7-0):` section headers but every
+status row underneath was blank. Same class of bug as the v0.9.7
+direction-readout bleed: the panel's differential-paint trackers
+(`lastEngineStates`, `lastElectrical`, etc.) survived the
+`Console.Clear` that runs during the mode-transition repaint. With
+the trackers still matching current state, `DrawContent` decided
+"nothing changed, skip" and left the cleared rows empty.
+
+Added `ShutdownPanel.ForceRedraw()` that invalidates the trackers
+then calls `Draw()`. `CockpitLandingView.Activate` now calls
+`ctx.Shutdown.ForceRedraw()` instead of plain `ctx.Shutdown.Draw()`
+— same pattern already used for `LandingHud`, `RadioTelescope`,
+`CommPanel` on transitions into their owning views.
+
+---
+
 ## v0.9.7 — 2026-05-16
 
 ### Changed — manual mission delivery
