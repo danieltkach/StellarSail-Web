@@ -8,6 +8,27 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.9.6 — 2026-05-16
+
+### Added
+
+- **Five swappable title-screen themes.** Pilot can flip through
+  visual variants of the "STELLAR SAIL" title with the F-keys:
+  - **F5** — Default cyan (the original).
+  - **F6** — Dark blue letters, dark-yellow tagline, three orange
+    `✦` accents around the title.
+  - **F7** — Magenta shaded — letters rendered with `▓` (medium
+    shade) instead of `█`, dotted underline.
+  - **F8** — Yellow + stars — yellow letters with a scattered field
+    of `✦` / `✸` / `·` around the block.
+  - **F9** — Green + ship — green letters with a small ASCII ship
+    silhouette flying off the right edge.
+  - Theme persists across sub-screens (main menu, pilot picker, ID
+    entry) until the player picks another or starts the game. Pure
+    cosmetic — no game-state effect.
+
+---
+
 ## v0.9.5 — 2026-05-16
 
 ### Refactor (intended invisible)
