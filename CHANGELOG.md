@@ -8,6 +8,28 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.9.5 — 2026-05-16
+
+### Refactor (intended invisible)
+
+Mode-transition rendering is now exclusively the View dispatcher's
+job. The old `DrawCockpit`, `DrawInitialLayout`, and `OnTitleHandoff`
+trio are gone. Every input handler that flips `Mode` just flips
+`Mode` — the dispatcher runs the destination view's `Activate`
+which does `Console.Clear` + paints.
+
+### Side benefit / probable fix
+
+- **`POST-LANDING SHUTDOWN` + `AUTOLAND ACTIVE` bleed-through.** Two
+  modes used to render at once because the Landing → LandingShutdown
+  transition didn't invalidate `LandingHud`'s dedupe trackers; the
+  envelope text "▼ AUTOLAND ACTIVE ▼" stayed on screen. The View
+  refactor makes `LandingShutdownView.Activate` run `LandingHud.
+  ForceRedraw`, so the stale text is overwritten with the correct
+  post-touchdown label.
+
+---
+
 ## v0.9.4 — 2026-05-16
 
 ### Added
