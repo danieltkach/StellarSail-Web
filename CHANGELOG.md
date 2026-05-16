@@ -8,6 +8,55 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.9.0 — 2026-05-16
+
+### Added — asteroid landing + surface gameplay
+
+A whole new place to go and a whole new thing to do once you're there.
+
+- **New world entries**:
+  - **Piedrabuena Station** at `(1200, 200, 0)` — a third station,
+    cargo and passenger hub.
+  - **Asteroide A-1138** at `(1000, 2000, 3000)` — an uncatalogued
+    rocky body, landable but uninhabited.
+- **Silent hail.** `H` now opens comms on any locked target, not just
+  stations. Asteroids and other non-station bodies return silence:
+  `...no response.` The channel stays open.
+- **Manual descent.** After a silent hail, the comm panel offers
+  `[D] Attempt manual descent` — no ATC, no landing code, drops you
+  straight into active landing physics 200m above the target.
+- **Asteroid surface mode.** After shutting down on a non-station body,
+  the pilot disembarks onto a 5×5 grid of cells:
+  - `WASD` / arrows to move the pilot avatar between cells.
+  - `R` scans the cell you're standing on. Cell contents are
+    hidden until scanned (rendered as `?` inside a dim border).
+    Distribution per asteroid is deterministic from the body's name:
+    ~50% Empty, ~25% Debris, ~15% Ore, ~10% Hazard.
+  - `X` extracts whatever's there: Debris drops 1–3 cargo units,
+    Ore 3–6 units. Hazard pays similarly but charges 8% hull stress.
+  - `E` returns to the ship's launch pad to take off again.
+
+### Added — Prospect mission type
+
+Mission board now has two kinds of contracts:
+
+- **Cargo Haul** (existing) — station-to-station; completes on
+  touchdown at the destination station.
+- **Prospect** (new) — pays you to bring N units (8–15) of cargo from
+  a named asteroid back to a station. Each asteroid in the world
+  generates one prospect listing on the Ops Center board. Pays
+  roughly `2× distance + 500¤ danger bonus + 0..400 random` —
+  meaningfully more than a regular haul because of the no-ATC
+  landing, surface survey, and hazard exposure.
+
+### Save schema
+
+- `Mission` gains a `Type` field (`CargoHaul` | `Prospect`) and a
+  `RequiredCargoUnits` int. Older saves without them deserialize as
+  `CargoHaul` / `0`. Backwards compatible.
+
+---
+
 ## v0.8.3 — 2026-05-15
 
 ### Changed
