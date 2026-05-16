@@ -2,6 +2,8 @@
 
 A space sim with a procedurally-generated cockpit, radio-astronomy mechanics, and physics-based flight + landing.
 
+**Current version: v0.9.4**
+
 ## ► Play
 
 **[Download and play](https://danieltkach.github.io/StellarSail-Web/)**
@@ -10,11 +12,13 @@ Cross-platform: Windows, Linux (x64 + ARM64), macOS. Runtime is bundled — noth
 
 ## ✨ Features
 
-- Realistic launch and landing sequences
-- Physics-based flight with drift
-- Procedural audio (cross-platform via OpenAL)
-- Multiple space stations to explore
-- Station communication and clearance procedures
+- **Real launch and landing** — pre-flight checklists, ATC clearance, manual descent on uncatalogued bodies, post-touchdown shutdown.
+- **Physics-based flight** — wind drift, attitude integration, thrust warmup, fuel consumption.
+- **Radio-astronomy cockpit** — tune frequencies, lock on signals, hail stations, decode landing codes.
+- **Six station modules** — Hangar, Fuel Depot, Repair Bay, Ops Center (mission board), Data Library (lore + logbook), Trading Post (cargo market with per-station pricing).
+- **Asteroid prospecting** — land on bodies with no ATC, walk the 5×5 surface grid, scan and extract debris/ore (with hazards). Bring the salvage back for a Prospect contract payday.
+- **PDA with Nav Calculator** — Contract / Cargo / Logbook / Charts / Nav Calc tabs. Includes a built-in RPN calculator so the pilot can do their own atan2/sqrt trig for navigation.
+- **Procedural audio** — cross-platform via OpenAL.
 
 ## 🎮 Controls
 

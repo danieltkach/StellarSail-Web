@@ -8,6 +8,30 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.9.4 — 2026-05-16
+
+### Added
+
+- **Toast banner for save.** Press F2 and a floating `✓ GAME SAVED`
+  badge appears at the top-center of the console for two seconds,
+  then clears itself. Failed saves get `✕ SAVE FAILED` for a few
+  seconds in red. The classic Messages-panel log line still records
+  the position too. The same toast plumbing is reusable — upcoming
+  mission-credit notifications will land on it.
+
+### Refactor (no observable change intended)
+
+- View-architecture work, mid-flight. Adds a `View` abstraction
+  (`Core/View.cs`) + `ViewRegistry`, 14 concrete subclasses (one per
+  ControlMode), and a main-loop dispatcher that runs
+  `View.Activate / View.Deactivate` on mode transitions. The station-
+  detail Exit handlers (Hangar / FuelDepot / RepairBay / OpsCenter /
+  DataLibrary / TradingPost) and the PDA exit no longer do their own
+  `Console.Clear + panel.Draw` — the dispatcher does it. Cockpit-
+  internal transitions and the title handoff are next.
+
+---
+
 ## v0.9.3 — 2026-05-16
 
 ### Fixed
