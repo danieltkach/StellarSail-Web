@@ -8,6 +8,31 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.9.3 — 2026-05-16
+
+### Fixed
+
+- **Asteroid takeoff actually works now.** LaunchPad's clearance gate
+  used to demand ATC sign-off on *every* takeoff. Asteroids have no
+  tower, so the pilot could only escape via a back-door that left the
+  ship in a weird state. Non-station bodies now skip the clearance
+  check entirely — `Enter` lifts off when engines + systems are on.
+  `H` on an asteroid LaunchPad just prints `No tower to hail — lift off
+  when ready (Enter).` instead of opening a doomed comm panel.
+- **"Space does nothing after the weird takeoff."** Root cause: thrust
+  warmup only ticks while `Ship.Mode` (the physics mode) is `Flight`.
+  An old path — `AbortLanding → Communication → Esc to Flight` — set
+  the control mode but left the physics mode at `Landing`, so the
+  pilot ended up in space unable to thrust. Comms-exit-to-Flight now
+  syncs both.
+
+### Changed
+
+- **Asteroid A-1138** — renamed from `Asteroide A-1138`. Per the
+  project's American-English convention.
+
+---
+
 ## v0.9.2 — 2026-05-16
 
 ### Fixed
