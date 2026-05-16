@@ -8,6 +8,38 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.9.9 — 2026-05-16
+
+### Fixed — toast leaves a blank rectangle after expiring
+
+`EraseToast` wrote spaces over the 3 rows the toast occupied but never
+repainted the underlying panel content. Since toasts usually fire from
+a non-flight mode (Ops Center, Hangar) where no mode transition is
+coming, the wiped border/content cells stayed blank. The toast erase
+path now re-`Activate`s the current view, restoring whatever was
+beneath.
+
+### Fixed — flash when moving the pilot on the station map
+
+Arrow-key navigation on the StationMenu called `Clear()` + `Draw()` on
+every keypress, which wiped the entire inner area to spaces and
+caused a visible flash. New `StationMenuPanel.MoveAvatar(oldLocation)`
+does a flash-free incremental repaint: wipe the two cells under the
+old avatar, redraw the static map idempotently (same glyphs over
+themselves — no visible change), repaint the avatar + entrance hint.
+
+### Fixed — Ops Center bottom-right border missing
+
+`DrawActions` was placing the `[4] Report cargo` slot at `reportY = 28`,
+which is the panel's bottom-border row, and unconditionally space-wiping
+that row plus one row below. The bottom-right border disappeared
+whether or not the `[4]` action was visible. Moved the slot up to the
+trailing blank after mission 3, dropped the description sub-line
+(manual covers the two-step flow), and the wipe now stays inside the
+inner area.
+
+---
+
 ## v0.9.8 — 2026-05-16
 
 ### Fixed — empty engine / system rows on the shutdown panel
