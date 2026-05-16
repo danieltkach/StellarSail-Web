@@ -8,6 +8,22 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.9.1 — 2026-05-16
+
+### Fixed
+
+- **Scanner painted on top of the station map on fresh start.** The
+  v0.7.9 defensive redraw inside `DiscoverySystem` was unconditional,
+  but a fresh new pilot at home `(0, 0, 0)` proximity-discovers the
+  home station on the very first frame *while sitting in
+  StationMenu mode* — the redraw painted the radar on top of the
+  station map. Discovery now only repaints the scanner when the
+  scanner is actually the visible foreground (`Mode == Flight`).
+  Discovery itself, the reward, and the log line still happen in
+  every mode.
+
+---
+
 ## v0.9.0 — 2026-05-16
 
 ### Added — asteroid landing + surface gameplay
