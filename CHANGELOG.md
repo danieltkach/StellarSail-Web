@@ -8,6 +8,40 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.9.7 — 2026-05-16
+
+### Changed — manual mission delivery
+
+Mission completion is no longer a silent auto-payout on touchdown.
+The pilot now finishes a contract in **three explicit steps**:
+
+1. **Land** at the destination station. Messages panel says
+   `Destination reached — file your manifest at the Ops Center to
+   get paid.` No credits yet.
+2. **Ops Center → `[4]` Report cargo for active contract.** Dax
+   validates the manifest (right station, cargo on board for
+   Prospect runs) and flips the contract to *DeliveryApproved*.
+   Green `✓ DELIVERY APPROVED` toast.
+3. **Hangar → `[3]` Unload mission cargo (collect payment).** Vance
+   unloads the cargo (Prospect runs lose `RequiredCargoUnits` from
+   the hold; CargoHaul cargo is abstract). Credits hit
+   `Pilot.Credits`. Mission moves to `MissionsCompleted`. Green
+   `✓ +N¤ CREDITED` toast.
+
+Save schema: `Mission.DeliveryApproved` bool added. Older saves
+load as `false` — in-progress contracts are treated as still in
+transit, which is the safe cautious default.
+
+### Fixed
+
+- **Direction-readout bleed-through.** The scanner panel showed
+  `(↻ 1°, ⊤ 0°)°)°)` when the ship's azimuth or polar shrank from a
+  longer to a shorter number — trailing chars from the previous
+  print survived. Both rows now use fixed-width number formatting +
+  trailing padding so older content always gets overwritten.
+
+---
+
 ## v0.9.6 — 2026-05-16
 
 ### Added
