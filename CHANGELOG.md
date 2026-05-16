@@ -8,6 +8,39 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.8.3 — 2026-05-15
+
+### Changed
+
+- **Nav Calc no longer gives the answer.** The PDA's Nav Calc tab
+  used to print the required azimuth, polar, distance, and turn-
+  deltas for free. That violated the "don't give it away" design
+  rule. The tab now shows only the **raw inputs** (ship and target
+  XYZ, plus `Δx`, `Δy`, `Δz`) and the **formulas**:
+  ```
+  azimuth  = atan2(Δx, Δy)
+  polar    = atan2(Δz, sqrt(Δx² + Δy²))
+  distance = sqrt(Δx² + Δy² + Δz²)
+  ```
+  Pilot does the math themselves.
+- **Built-in RPN calculator** at the bottom of the Nav Calc tab.
+  Token-based: type `300 200 atan2`, get the answer. Trig in/out
+  degrees throughout. Supports `+ - * / sin cos tan asin acos atan
+  atan2 sqrt sq abs neg pi e dup drop swap clear` plus a four-deep
+  stack readout and an eight-line history. Press `F` to focus the
+  calculator (typing routes to its input buffer), `Esc` to leave
+  focus.
+
+### Test scenario
+
+- **World temporarily stripped to two stations** for clarity:
+  - Home: **Base Puerto San Julián** at `(0, 0, 0)`
+  - **Glaciar Perito Moreno** at `(300, 200, 350)` — 510 km from
+    home, all three axes non-trivial, designed to actually exercise
+    the 3D nav math.
+
+---
+
 ## v0.8.2 — 2026-05-15
 
 ### Changed
