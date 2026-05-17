@@ -8,6 +8,49 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.11.0 — 2026-05-17
+
+Two new pilot conveniences.
+
+### Added — cargo hold capacity (default 50, upgradable)
+
+Pilots now have a hard cargo limit. Default starting capacity is 50
+units. The Trading Post and asteroid extraction both refuse the
+overflow with a clear message ("Hold full — N/M units, sell or
+upgrade first" or "Hold capped — N units left behind"). The PDA Cargo
+tab shows a `X / N units` gauge in the header, colored red when full,
+yellow when ≤5 free, gray otherwise.
+
+Repair Bay has a new action:
+
+  `[3] Upgrade cargo hold (+10 units / 500¤)`
+
+Greta rewelds the inner bulkhead, capacity grows by 10, credits drop
+by 500. Information sub-menu slid down to `[4]`.
+
+`Pilot.CargoCapacity` is persisted; older saves without the field
+default to 50.
+
+### Added — board the ship while it's parked in the hangar bay
+
+The Hangar dialog grows a new action when the ship is in the bay:
+
+  `[B] Board the ship (charts, cargo, systems)`
+
+Pressing it switches into the new `BayCockpit` mode — same panel
+layout as the other cockpit-landing views, so the pilot can:
+
+- Open the **PDA** with `[P]` and read Charts / Cargo / Logbook.
+- Toggle engines `1-6` and systems `7-0` for inspection.
+- Watch the Shutdown / LandingHud / StationInfo readouts.
+
+There's no launch path from the bay — the bay isn't a pad. To actually
+take off the pilot still has to ask Vance to bring the ship to the
+atrium first. `[E]` or `[Esc]` disembarks back to the Hangar dialog,
+with Vance's existing dialog log preserved.
+
+---
+
 ## v0.10.2 — 2026-05-17
 
 Asteroid-landing polish — the disembark/launch loop on a non-station
