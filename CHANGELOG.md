@@ -8,6 +8,69 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.10.2 — 2026-05-17
+
+Asteroid-landing polish — the disembark/launch loop on a non-station
+body had several rough edges that conspired to strand a pilot.
+
+### Fixed — disembarking from the cockpit on an asteroid no longer drops you into a phantom station map
+
+`LaunchPadInputSystem.Disembark` was unconditionally setting Mode to
+StationMenu — which on an asteroid took the pilot to a fake station
+menu with Refuel / Repair / Hangar etc. for a body that had none of
+those. Now branches on `LockedTarget.Type`: non-Station resets and
+re-enters the AsteroidSurface grid; Station keeps the existing
+station-map flow.
+
+### Fixed — save recovery for the bogus-station-menu state
+
+Saves taken in the broken state (Mode = StationMenu but LastStation
+null) used to load into Flight at zero altitude on the asteroid pad.
+SaveSystem.Apply now has a third Mode-restore branch: if LastStation
+is null but LockedTarget is a non-Station body and the ship is within
+100m of it, restore to LaunchPad. You can then step back onto the
+surface or run startup and launch normally.
+
+### Fixed — `[E]` no longer accidentally boards the ship from the asteroid grid
+
+`E` is already a directional letter in everyone's WASD/QE muscle
+memory and pilots kept accidentally entering the cockpit while
+trying to walk east on the surface grid. Only `[Esc]` returns to the
+ship now. The bottom hint says so.
+
+### Fixed — right-column info panel showed station services on asteroids
+
+`StationInfoPanel` hardcoded the six station services (Refuel / Repair
+Bay / Hangar / Mission Board / Trading Post / Data Library) regardless
+of target type. Now branches: stations show services + wind / pad
+conditions; non-stations show "SURFACE / no services / uninhabited
+body", scan/extract action hints, and "Atmosphere: none / Surface:
+rock/dust" conditions.
+
+### Fixed — Launch / Landing menu hint was advertising the wrong keys
+
+MenuPanel was falling through to the Flight-mode hint
+(`[T-TELESCOPE] [ARROWS-FLY] [SPACE-THRUST] ...`) during
+LandingShutdown / LaunchPad / Launch / LandingCodeEntry — so pilots
+pressed arrow keys based on the bottom hint and got nothing. Added
+mode-specific hints for each phase.
+
+### Added — arrow-key aliases during Landing and Launch
+
+In addition to `IJKL`, the arrow keys now strafe (`←/→`) and move
+forward / backward (`↑/↓`) during Landing and Launch. Vertical (`U/O`)
+and attitude (`W/S` `A/D` `Q/E`) stay on letters.
+
+### Changed — Launch's vertical thrust per tap is now 5 m/s (was 1)
+
+Against gravity (0.08 m/s²), a 1 m/s tap only nets ~6m of altitude
+before the impulse dies — the ship felt like it wasn't accelerating.
+Bumped to 5 m/s so each tap visibly moves the altimeter. Still
+gravity-limited (the rocket idiom), the pilot is just no longer
+fighting at the noise floor.
+
+---
+
 ## v0.10.1 — 2026-05-17
 
 Polish pass on top of v0.10.0 — city layout, conversation cleanup, and
