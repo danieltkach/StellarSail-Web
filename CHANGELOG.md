@@ -8,6 +8,39 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.11.1 — 2026-05-17
+
+### Added — life-support oxygen (suit + ship)
+
+Two new resources on the pilot:
+
+- **Suit oxygen** (`OxygenPortable`, 100 max) — drains 1 unit / second
+  while EVA on the AsteroidSurface. The asteroid panel shows
+  `SUIT O2  N/100` in the top-right corner, green/yellow/red. Below
+  25% the message log surfaces a throttled warning; at zero the hull
+  begins to stress at 2%/sec, giving the pilot roughly 50 seconds of
+  leeway to make it back inside.
+- **Ship reserve** (`OxygenShip`, 1000 max) — the cabin tank. Refills
+  the suit automatically every time the pilot re-boards from the
+  surface. Being inside the cockpit costs nothing; the only way the
+  ship reserve drops is via that transfer.
+
+The PDA Cargo tab gets a **LIFE SUPPORT** section showing both
+levels with the same color thresholds.
+
+The Fuel Depot has a new action:
+
+  `[3] Top off ship O2 (50¤)`
+
+Mara tops both the ship reserve and the suit for a flat 50 credits.
+Information sub-menu slid down to `[4]`.
+
+`Pilot.OxygenPortable` and `Pilot.OxygenShip` are persisted; older
+saves without the fields default to full so existing pilots don't
+load into a suffocating state.
+
+---
+
 ## v0.11.0 — 2026-05-17
 
 Two new pilot conveniences.
