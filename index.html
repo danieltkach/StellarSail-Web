@@ -453,7 +453,7 @@
 
             <a href="https://github.com/danieltkach/StellarSail-Web/releases/latest" class="download-btn">⬇ DOWNLOAD GAME</a>
 
-            <p class="version">Current Version: 0.1.0 | Cross-platform | Auto-updates enabled</p>
+            <p class="version">Current Version: <span id="latestVersion">v0.9.9</span> | Cross-platform | Auto-updates enabled</p>
         </div>
 
         <div class="featured-image">
@@ -560,13 +560,9 @@
                         <img src="screenshots/title screen.png" alt="Title Screen">
                         <div class="screenshot-caption">Title screen with swappable themes (F5–F9).</div>
                     </div>
-                    <div class="screenshot-item" onclick="openModal('screenshots/hangar.png')">
-                        <img src="screenshots/hangar.png" alt="Ship Hangar">
-                        <div class="screenshot-caption">Ship hangar — your home base before launch.</div>
-                    </div>
-                    <div class="screenshot-item" onclick="openModal('screenshots/hangar2.png')">
-                        <img src="screenshots/hangar2.png" alt="Hangar — alternate view">
-                        <div class="screenshot-caption">Alternate hangar view with pre-flight readouts.</div>
+                    <div class="screenshot-item" onclick="openModal('screenshots/station map.png')">
+                        <img src="screenshots/station map.png" alt="Station Map">
+                        <div class="screenshot-caption">Interactive station map for navigating the deck.</div>
                     </div>
                     <div class="screenshot-item" onclick="openModal('screenshots/nav-calc.png')">
                         <img src="screenshots/nav-calc.png" alt="Navigation Calculator">
@@ -576,10 +572,6 @@
                         <img src="screenshots/in-flight2.png" alt="In-Flight Cockpit">
                         <div class="screenshot-caption">In-flight cockpit during cruise with live telemetry.</div>
                     </div>
-                    <div class="screenshot-item" onclick="openModal('screenshots/station map.png')">
-                        <img src="screenshots/station map.png" alt="Station Map">
-                        <div class="screenshot-caption">Interactive station map for navigating the deck.</div>
-                    </div>
                     <div class="screenshot-item" onclick="openModal('screenshots/request landing2.png')">
                         <img src="screenshots/request landing2.png" alt="Request Landing">
                         <div class="screenshot-caption">Requesting landing clearance over comms.</div>
@@ -587,6 +579,14 @@
                     <div class="screenshot-item" onclick="openModal('screenshots/autoland.png')">
                         <img src="screenshots/autoland.png" alt="Autoland">
                         <div class="screenshot-caption">Autoland sequence guiding the ship to the pad.</div>
+                    </div>
+                    <div class="screenshot-item" onclick="openModal('screenshots/hangar.png')">
+                        <img src="screenshots/hangar.png" alt="Ship Hangar">
+                        <div class="screenshot-caption">Ship hangar — your home base before launch.</div>
+                    </div>
+                    <div class="screenshot-item" onclick="openModal('screenshots/hangar2.png')">
+                        <img src="screenshots/hangar2.png" alt="Hangar — alternate view">
+                        <div class="screenshot-caption">Alternate hangar view with pre-flight readouts.</div>
                     </div>
                     <div class="screenshot-item" onclick="openModal('screenshots/ops center2.png')">
                         <img src="screenshots/ops center2.png" alt="Ops Center">
@@ -649,6 +649,16 @@
                     closeModal();
                 }
             });
+
+            // Pull the latest release tag from GitHub so the version is never stale.
+            fetch('https://api.github.com/repos/danieltkach/StellarSail-Web/releases/latest')
+                .then(function (r) { return r.ok ? r.json() : null; })
+                .then(function (data) {
+                    if (data && data.tag_name) {
+                        document.getElementById('latestVersion').textContent = data.tag_name;
+                    }
+                })
+                .catch(function () { /* keep the fallback already in the DOM */ });
         </script>
     </body>
 </html>
