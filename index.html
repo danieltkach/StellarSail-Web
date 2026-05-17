@@ -296,6 +296,16 @@
             opacity: 0.9;
         }
 
+        .screenshot-caption {
+            padding: 10px 14px;
+            color: #0ff;
+            font-size: 13px;
+            text-align: center;
+            border-top: 1px solid rgba(0, 255, 255, 0.25);
+            background: rgba(0, 10, 25, 0.6);
+            line-height: 1.4;
+        }
+
         .modal {
             display: none;
             position: fixed;
@@ -546,23 +556,45 @@
             <div class="screenshots">
                 <h2>📸 Game Screenshots</h2>
                 <div class="screenshot-grid">
-                    <div class="screenshot-item" onclick="openModal('screenshots/launch sequence 1.jpg')">
-                        <img src="screenshots/launch sequence 1.jpg" alt="Launch Sequence">
+                    <div class="screenshot-item" onclick="openModal('screenshots/title screen.png')">
+                        <img src="screenshots/title screen.png" alt="Title Screen">
+                        <div class="screenshot-caption">Title screen with swappable themes (F5–F9).</div>
                     </div>
-                    <div class="screenshot-item" onclick="openModal('screenshots/launch sequence 3.jpg')">
-                        <img src="screenshots/launch sequence 3.jpg" alt="Launch Sequence Controls">
+                    <div class="screenshot-item" onclick="openModal('screenshots/hangar.png')">
+                        <img src="screenshots/hangar.png" alt="Ship Hangar">
+                        <div class="screenshot-caption">Ship hangar — your home base before launch.</div>
                     </div>
-                    <div class="screenshot-item" onclick="openModal('screenshots/navigating to pulsar.jpg')">
-                        <img src="screenshots/navigating to pulsar.jpg" alt="Navigating to Pulsar">
+                    <div class="screenshot-item" onclick="openModal('screenshots/hangar2.png')">
+                        <img src="screenshots/hangar2.png" alt="Hangar — alternate view">
+                        <div class="screenshot-caption">Alternate hangar view with pre-flight readouts.</div>
                     </div>
-                    <div class="screenshot-item" onclick="openModal('screenshots/landing sequence.jpg')">
-                        <img src="screenshots/landing sequence.jpg" alt="Landing Sequence">
+                    <div class="screenshot-item" onclick="openModal('screenshots/nav-calc.png')">
+                        <img src="screenshots/nav-calc.png" alt="Navigation Calculator">
+                        <div class="screenshot-caption">Navigation calculator plotting a course between bodies.</div>
                     </div>
-                    <div class="screenshot-item" onclick="openModal('screenshots/Haven Station.jpg')">
-                        <img src="screenshots/Haven Station.jpg" alt="Haven Station">
+                    <div class="screenshot-item" onclick="openModal('screenshots/in-flight2.png')">
+                        <img src="screenshots/in-flight2.png" alt="In-Flight Cockpit">
+                        <div class="screenshot-caption">In-flight cockpit during cruise with live telemetry.</div>
                     </div>
-                    <div class="screenshot-item" onclick="openModal('screenshots/wide cockpit.jpeg')">
-                        <img src="screenshots/wide cockpit.jpeg" alt="Wide Cockpit">
+                    <div class="screenshot-item" onclick="openModal('screenshots/station map.png')">
+                        <img src="screenshots/station map.png" alt="Station Map">
+                        <div class="screenshot-caption">Interactive station map for navigating the deck.</div>
+                    </div>
+                    <div class="screenshot-item" onclick="openModal('screenshots/request landing2.png')">
+                        <img src="screenshots/request landing2.png" alt="Request Landing">
+                        <div class="screenshot-caption">Requesting landing clearance over comms.</div>
+                    </div>
+                    <div class="screenshot-item" onclick="openModal('screenshots/autoland.png')">
+                        <img src="screenshots/autoland.png" alt="Autoland">
+                        <div class="screenshot-caption">Autoland sequence guiding the ship to the pad.</div>
+                    </div>
+                    <div class="screenshot-item" onclick="openModal('screenshots/ops center2.png')">
+                        <img src="screenshots/ops center2.png" alt="Ops Center">
+                        <div class="screenshot-caption">Station Operations Center for missions and trade.</div>
+                    </div>
+                    <div class="screenshot-item" onclick="openModal('screenshots/repair bay.png')">
+                        <img src="screenshots/repair bay.png" alt="Repair Bay">
+                        <div class="screenshot-caption">Repair bay for ship maintenance and refits.</div>
                     </div>
                 </div>
             </div>
