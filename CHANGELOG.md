@@ -8,6 +8,96 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.10.0 — 2026-05-16
+
+A big release — months of cockpit feel, world building, and architecture
+work landing in one bundle.
+
+### Added — NPC conversations (info + goodbye)
+
+Every station NPC now has a real conversation shape instead of an
+action-list-and-out flow:
+
+- **`[I] Information`** opens a sub-menu with three questions:
+  `[a]` the NPC's backstory, `[b]` flavor about the building, and
+  `[c]` an open question tied to your active mission (or a generic
+  topical line if you're between contracts).
+- **`[E] Say goodbye`** prints a player + NPC farewell exchange in
+  the dialog log, then a second `[E]` confirms exit. `[Esc]` lets you
+  stay if you had one more thing to ask.
+
+Applied to Fuel Depot (Mara), Repair Bay (Greta), Ops Center (Dax),
+Trading Post (Quill), and Hangar (Vance). Each NPC has per-station
+flavor lines (San Julián / Glaciar / Madryn) so the room feels
+grounded.
+
+### Added — Fuel Depot and Repair Bay custom amounts
+
+The old "top up to 25/50/75/100%" buttons are gone. Both NPCs now
+offer:
+
+- **`[1] Choose an amount`** — type the unit (or point) count, Enter
+  buys it. Capped at tank capacity / remaining damage and your credits.
+- **`[2] Fill her up` / Full repair** — the existing 100% path.
+
+### Added — Glaciar Perito Moreno gets a city
+
+From the Glaciar station menu, `[C]` opens a walkable city map: a
+central Plaza hub with five buildings around it — **Hospital**,
+**Market**, **Artisans' Guild**, **Entertainment Hall**, and the
+**Ice Cream Shop**. Arrow keys walk between buildings; Enter triggers
+an NPC line at each. Mechanics (buying meds, shopping, commissioning
+artisans, ordering ice cream, etc.) land in follow-up releases — for
+this drop the world building is in place so the city feels alive
+before the systems that drive it are wired up.
+
+### Added — PDA opens from anywhere
+
+`[P]` was Flight-only. Now it works from any non-text-entry mode
+(StationMenu, Hangar, Fuel, Ops, Trading, LaunchPad, etc.). PDA Exit
+restores the mode you were in, so PDA acts like a true toggle. Active
+flight phases (Landing, Launch) are excluded — opening the PDA mid-
+descent would silently keep the ship moving with no HUD.
+
+### Added — Charts are now a rotatable 3D cube
+
+The Charts tab was a flat X/Y plot that lost the Z axis entirely.
+Rebuilt as a hybrid:
+
+- **Left** — isometric pane. World (X, Y, Z) rotated by yaw + pitch
+  and projected to screen. A wireframe cube traces the ±5000 km world
+  bounds so you have an orientation reference.
+- **Right** — top-down minimap (X / Z), no rotation, smaller. Good
+  for precise picking when the iso angle is awkward.
+- **Arrow keys / WASD** rotate the iso view by 10° increments.
+  Pitch clamps to ±75° so the cube never flips upside down.
+
+### Fixed — Hangar `[3] Unload` was missing a ship-location gate
+
+You could collect mission payment with the ship still parked on the
+atrium. Now `[3]` only renders when `ShipLocation == Bay`, and Vance
+pushes back if you trigger it from somewhere weird ("Bring your ship
+into the bay first — can't crack the cargo doors on the atrium pad.").
+
+### Changed — View refactor step 9 complete (architecture)
+
+`EngineUpdateSystem` and `Program.cs` no longer pick which panels to
+paint each frame. Per-frame draw is now owned entirely by the active
+view's `Update` method:
+
+- Left column (Engines / ShipStatus / Shutdown) → in each view's Update
+- Telescope + Menu updates → gated by `View.WantsBottomCockpitUpdate`
+- Right column (RadioTelescope / StationInfo) → in each view's Update
+- Scanner radar sweep → `FlightView.Update`
+- Landing HUD → `CockpitLandingView.Update`
+
+The ad-hoc mode-switch lists scattered around the main loop are gone.
+Adding a new mode in the future means writing one View class; the
+main loop never has to learn about it. `EngineUpdateSystem` now does
+pure simulation work (thrust gating, fuel/heat, audio).
+
+---
+
 ## v0.9.9 — 2026-05-16
 
 ### Fixed — toast leaves a blank rectangle after expiring
