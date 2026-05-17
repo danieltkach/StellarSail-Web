@@ -8,6 +8,74 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.10.1 — 2026-05-17
+
+Polish pass on top of v0.10.0 — city layout, conversation cleanup, and
+a new way into Glaciar's city.
+
+### Changed — Glaciar's City Gate replaces the Trading Post slot
+
+The Glaciar station map no longer has a Trading Post. Its bottom-right
+tile is now a **City Gate** — a small mini-map of the buildings beyond
+it (Hospital / Market / Plaza / Artisans / Ice Cream / Entertainment),
+laid out the same way the city itself renders. The pilot walks their
+avatar to the City Gate tile and presses Enter to step into the city,
+matching the spatial idiom every other module on the station uses.
+Other stations keep their Trading Post unchanged.
+
+The `[C]` global hotkey from v0.10.0 is gone — diegetically, the city
+is reached by walking through the gate, not pressed into from anywhere.
+
+### Added — Data Library hints at Glaciar's location
+
+Two new Lore entries:
+
+- **"Glaciar Perito Moreno — Bearing"** — gives direction + rough
+  distance ("about half a thousand kilometers out, east of home,
+  upward of the orbital plane") without publishing exact coordinates.
+- **"Glaciar City"** — explains that the city is built into the
+  bedrock around Glaciar's landing pad and how to enter it via the
+  City Gate tile.
+
+The exact coordinates still aren't in the chart until you accept a
+contract bound for Glaciar (dispatcher hands over the bearing) or fly
+close enough to chart it by proximity.
+
+### Fixed — Glaciar city layout overlap
+
+The dialog log was overlapping the Entertainment Hall, wiping the
+building's content and burying the avatar at Entertainment's coords
+under dialog text. Reflowed into three clean building rows + a
+dedicated dialog band (rows 20-23) so every location shows the pilot
+correctly.
+
+### Fixed — Glaciar city NPC dialog used to truncate with "…"
+
+Lines longer than 60 chars were getting clipped with an ellipsis.
+Switched to the same word-wrap pattern the other detail panels use
+(split on spaces, indented continuation under the speaker prefix).
+
+### Fixed — comm "Waiting for response..." after departure clearance
+
+A terminal dialog node clears AvailableResponses but doesn't change
+CurrentPermission (which stays InConversation). The CommPanel was
+printing "Waiting for response..." even though the conversation had
+actually ended — most visible right after the tower granted
+departure clearance, where the next move is to launch, not to keep
+talking. The panel now shows "▶ CLEARED FOR DEPARTURE ◀ / [ESC]
+Back to launch pad" when DepartureCleared is true, and just the
+[ESC] hint otherwise.
+
+### Fixed — duplicate `[I]/[E]` hint in Hangar / Ops / Trading
+
+The Hangar, Ops Center, and Trading Post action lists printed
+"`[I] Information · [E] Say goodbye`" right above the bottom-of-panel
+hint that already showed the same line. Removed the duplicate; the
+bottom hint is the right place for it. (Fuel Depot and Repair Bay
+were never duplicated.)
+
+---
+
 ## v0.10.0 — 2026-05-16
 
 A big release — months of cockpit feel, world building, and architecture
