@@ -8,6 +8,19 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.11.2 — 2026-05-17
+
+### Added — two-press confirmation before quitting with END
+
+Single accidental `END` used to quit immediately and silently lose any
+unsaved progress. Now the first press arms a 5-second window — shows a
+yellow toast (`✕ PRESS END AGAIN TO QUIT`) and a message-log line
+reminding the pilot they can save first with `F2`. A second `END`
+inside the window actually exits. The prompt expires silently if the
+pilot does anything else.
+
+---
+
 ## v0.11.1 — 2026-05-17
 
 ### Added — life-support oxygen (suit + ship)
