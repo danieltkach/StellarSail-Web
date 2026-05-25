@@ -8,6 +8,37 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.18.2 — 2026-05-25
+
+### Changed — stars get spectral color + per-star twinkle
+
+Background starfield is no longer 180 identical DarkBlue dots. Each
+star now carries a fixed color sampled from a real-sky-ish palette
+(white/gray weighted, with rarer cyan, yellow, red, magenta), plus
+its own twinkle rate (0.2–1.5 Hz) and phase offset. Three brightness
+tiers per tick:
+
+- **bright** (`b ≥ 0.7`) → full color, `✦` glyph
+- **dim** (`b ≥ 0.3`) → dark variant of the color, `·` glyph
+- **off** (`b < 0.3`) → not drawn
+
+The draw is throttled to ~5 Hz so the twinkle reads as deliberate
+rather than seizure-inducing, and it now runs on every frame rather
+than only when the ship moves — the sky breathes while the pilot is
+parked.
+
+### Fixed — pitch ladder no longer shows gaps after object pass
+
+The pitch ladder (col 4, rows 7-15) lived inside the radar's drawing
+area; when a tracked space object's old cell happened to overlap the
+ladder column and the object-clearing pass wrote a blank, the ladder's
+"skip if unchanged" guard meant the wiped cell stayed empty. Ladder
+background now repaints unconditionally each tick (9 cheap writes),
+and the starfield's new HUD-avoidance check skips ladder cells +
+compass strip + numeric polar readout so neither pass stomps the HUD.
+
+---
+
 ## v0.18.1 — 2026-05-25
 
 ### Added — background starfield in the flight view
