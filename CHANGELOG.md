@@ -8,6 +8,21 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.13.1 — 2026-05-25
+
+### Fixed — PDA Cargo tab "ITEMit 100 / 100" header collision
+
+The Cargo tab's column headers (`ITEM` / `QTY`) were drawn at row
+`y+3`, which is the exact row `DrawLifeSupportRows` had already used
+for the `Suit 100 / 100` readout. "ITEM" overwrote the first four
+chars, producing the garbled `ITEMit 100 / 100`, and the separator
+at `y+4` then erased the `Ship` row entirely. The cargo table now
+starts at `y+6` (`cargoHeaderRow`) so it sits cleanly below the
+life-support block; the empty-hold messages shift down by the same
+amount.
+
+---
+
 ## v0.13.0 — 2026-05-25
 
 ### Added — in-flight compass strip + pitch ladder
