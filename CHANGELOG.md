@@ -8,6 +8,28 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.18.1 — 2026-05-25
+
+### Added — background starfield in the flight view
+
+180 fixed unit-vector "stars" sprinkled on a unit sphere, projected
+through the ship's `WorldToShipRelative` transform each frame. As the
+pilot pitches/yaws, the stars slide across the radar cone — a low-cost
+parallax cue that the cockpit looks out on a 3D world rather than a
+flat panel.
+
+Stars draw as small DarkBlue `·` dots so they sit visually beneath the
+gray radar ring dots and the colored object glyphs. Cells stomped by a
+tracked object are skipped (the object glyph wins). Star positions are
+diff-painted just like the object pass: previous-frame cells are wiped
+and ring dots restored before the new frame paints, so flicker stays
+minimal even at the per-frame cadence of ship rotation.
+
+Star seed is fixed (`0x5A11`) so the same starfield reappears every
+session — gives the cockpit a recognizable sky.
+
+---
+
 ## v0.18.0 — 2026-05-25
 
 ### Added — retro-futuristic PDA chrome
