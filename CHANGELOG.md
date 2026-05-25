@@ -8,6 +8,29 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.14.0 — 2026-05-25
+
+### Added — pilot reputation (v0)
+
+A single global reputation score is now tracked on `Pilot.Reputation`,
+starts at 0 for new pilots, persists across saves.
+
+- **+5** on every successfully delivered contract (manifest accepted at
+  the Hangar after the Ops report-in flow).
+- **-10** when the pilot cancels an accepted contract via the new `[C]`
+  prompt in the Ops Center — Dax now mentions the cancel "takes a hit"
+  in his dialog.
+- Visible in the PDA **Cargo** tab beneath `CREDITS` and `INTEL`,
+  signed (`+5`, `-10`, `0`), green when positive, gray at zero, red
+  when negative.
+
+This is v0 — a single global score. Future hooks (per-faction buckets,
+dialog tone shifts at ±20/±50/±100, gating for higher-tier missions,
+grey-market integration with the unverified-prospect-origin loophole)
+are deferred until the design pressure surfaces.
+
+---
+
 ## v0.13.2 — 2026-05-25
 
 ### Added — cancel active contract from Ops Center
