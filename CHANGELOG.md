@@ -8,6 +8,33 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.18.0 — 2026-05-25
+
+### Added — retro-futuristic PDA chrome
+
+The PDA used to read as a flat panel — title at the top, hint at the
+bottom, generic frame all around. Now it presents as a handheld
+device the pilot carries:
+
+- **Device header (row 1)** — `◉ PWR` power LED on the left, brand
+  badge `STELLARSAIL P-DA · D-7 · {PILOT}` in the middle, **live
+  battery gauge** on the right tied to `ship.Battery` (five-segment
+  bar that flips green → yellow → red as the reserve drops). The
+  gauge refreshes per frame via `PdaView.Update`.
+- **CRT screen frame** — phosphor-green inner box drawn at row 2
+  (top), row Height-4 (bottom), wrapping the entire tab strip + tab
+  body so the content reads like it sits on an LCD/CRT.
+- **Device footer (row Height-2)** — speaker-grille pixel art on the
+  left (`▘▝ ▙▟`), controls hint in the middle, antenna icon (`≣⟀`)
+  on the right.
+
+Tab and body coordinates didn't move — the chrome is overlaid around
+existing content. Side effect: the cargo/contract/logbook bodies pick
+up an implicit "screen" border without anything in those drawers
+needing changes.
+
+---
+
 ## v0.17.0 — 2026-05-25
 
 ### Fixed — PDA Cargo: Credits/Intel/Reputation moved to a right column
