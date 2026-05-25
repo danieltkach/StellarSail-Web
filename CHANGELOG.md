@@ -8,6 +8,19 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.14.1 — 2026-05-25
+
+### Changed — landings now start at 500m instead of 200m
+
+Both descent entry paths — cleared landing through `LandingCodeInputSystem`
+(Pact stations with ATC) and `CommunicationInputSystem.InitiateManualDescent`
+(non-station bodies like asteroids) — used to snap the ship to 200m above
+the pad. Bumped to **500m** so the altimeter (`AltimeterScale = 500.0m`)
+reads a full gauge at entry and counts down smoothly to zero, giving the
+descent the runway it deserves.
+
+---
+
 ## v0.14.0 — 2026-05-25
 
 ### Added — pilot reputation (v0)
