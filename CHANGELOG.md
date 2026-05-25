@@ -8,6 +8,54 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.20.0 — 2026-05-25
+
+### Added — 8 new skills + 3-category structure (18 total)
+
+`SkillCatalog` grew from 10 to 18 entries across three categories:
+
+- **Science (6)** — Math `∑`, Physics `φ`, Chemistry `⚗`, Astronomy `⊙`,
+  *Biology `❀`*, *Geology `⛰`*
+- **Engineering (6)** — Rocketry `⚛`, Engineering `⚙`, *Mining `⛏`*,
+  Piloting `✈`, *Cryptography `⚷`*, Research `λ`
+- **Practical (6)** — Combat `⚔`, Trading `⚖`, *Diplomacy `⚜`*,
+  *Survival `⛺`*, *Medicine `⚕`*, *Stealth `◐`*
+
+Italicized entries are new. All start at level 1 (novice); progression
+hooks still pending.
+
+### Changed — Profile tab layout (3-column top + 3-column skill matrix)
+
+The v0.19 Profile tab had three problems: BIO block ate 4 rows for a
+placeholder, Achievements sat in a column wider than its content
+needed, and the 10-skill two-column matrix overflowed the panel frame
+on the last 3 rows. v0.20 fixes all three:
+
+- **BIO block removed** — its 4 rows go back to skills.
+- **Top section** is now three columns: Identity (Name/Age + Life
+  Support) on the left, Pilot Ledger (Credits/Intel/Reputation) in
+  the middle, **Achievements on the right** as a dedicated third
+  column.
+- **Skills band** is now three columns (Science / Engineering /
+  Practical), 6 skills per column, with a compressed 7-segment bar
+  to fit the 36-col column width. 18 skills fit inside the screen
+  frame with margin to spare.
+
+### Fixed — bay-cockpit right panel flicker
+
+`StationInfoPanel.DrawServices` and `DrawConditions` were re-wiping
+their rows to black + repainting every frame, called from
+`CockpitLandingView.Update`. With the ship parked in a bay the panel
+content never changes, but the wipe → repaint cycle was visible as
+a black flash on every frame.
+
+Both methods now diff-cache their content by `(target name + type)` /
+`(target type)` respectively and skip the wipe + repaint when the key
+is unchanged. `Clear()` invalidates the new keys so a full
+re-Activate still produces a fresh paint.
+
+---
+
 ## v0.19.0 — 2026-05-25
 
 ### Changed — PDA tab rework: Cargo out, Profile + Contacts in
