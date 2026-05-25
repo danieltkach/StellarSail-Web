@@ -8,6 +8,37 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.15.0 — 2026-05-25
+
+### Changed — autopilot now owns velocity, not just attitude
+
+Pre-v0.15, engaging autopilot (lock target + Enter from Telescope Lock
+mode) only rotated the ship's nose to face the target — the pilot had
+to brake and re-thrust manually. If you locked while cruising at
+50 km/s in another direction, the autopilot would point you correctly
+but you'd sail right past.
+
+`AutopilotController` is now phased and takes the velocity vector
+through three explicit stages on engage:
+
+- **Aligning** — brake toward zero while rotating. Skips to Cruising
+  early if residual velocity is already roughly aligned (≥ 0.95 dot)
+  with the target heading.
+- **Cruising** — re-accelerate along the heading to the **captured
+  cruise speed**. The captured speed is the ship's velocity magnitude
+  at the moment of engagement, floored at 25 km/s so a pilot sitting
+  still still gets a usable approach. The engage-message now reports
+  it: `Autopilot ON (1217km, cruise 50km/s)`.
+- **Approaching** — within 80 km of the target, linearly taper down
+  to **5 km/s arrival speed** so the ship doesn't slam into the pad.
+  Autopilot disengages at 0.5 km, leaving the pilot in final-approach
+  control.
+
+Acceleration is capped at 40 km/s² so phase transitions read as
+deliberate adjustments rather than velocity teleports.
+
+---
+
 ## v0.14.2 — 2026-05-25
 
 ### Changed — auto-landing window tightened to 10m
