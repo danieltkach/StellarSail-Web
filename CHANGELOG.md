@@ -8,6 +8,33 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.12.4 — 2026-05-25
+
+### Added — mining-loop sound effects
+
+The shaft and Workshop are no longer silent:
+
+- **Dig thud** — every successful pick swing plays a short impact whose
+  pitch tracks the tile's hardness (90 Hz for soft regolith up to 240 Hz
+  for hard rock).
+- **Mineral chord** — extracting a mineral plays an ascending chord whose
+  voicing scales with rarity: rarity-1 is a single warm tone, rarity-5
+  layers four notes with octave + major-third on top. Within a rarity
+  tier, the mineral's id-hash shifts the root by up to ±6 semitones so
+  iron and nickel sound related but not identical.
+- **Pick bounce** — sharp two-note clang when the pick can't break the
+  target tile (TooHard result).
+- **Tool broken** — descending three-note disappointment when the pick,
+  scanner, or detector hits zero durability.
+- **Scanner sweep** — fast rising 600/900/1300 Hz sweep on `[R]`.
+- **Detector ping** — two evenly-spaced 500 Hz pulses on `[F]` — distinct
+  from the scanner so the pilot hears which knowledge tool fired.
+- **Workshop repair / upgrade** — Greta plays a crisp two-note chime on a
+  successful repair and a triumphant rising A-C#-E-A chord on a tier
+  upgrade.
+
+---
+
 ## v0.12.3 — 2026-05-25
 
 ### Added — per-system on/off chirps + active-systems pad
