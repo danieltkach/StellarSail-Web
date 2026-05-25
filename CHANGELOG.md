@@ -8,6 +8,21 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.12.2 — 2026-05-25
+
+### Fixed — `[4] Report cargo` no longer looks like a fourth mission
+
+The "Report cargo for active contract" prompt used to render at the
+bottom of the right-side mission list, immediately after `[3]`, which
+made it read like a fourth dispatch listing the pilot could accept.
+Moved it out of the missions block entirely — it now sits directly
+below the left-side **ACTIVE CONTRACT** box, in yellow, and only
+appears when the pilot has an active contract at its destination
+station awaiting manifest approval. The `[4]` key handler is
+unchanged.
+
+---
+
 ## v0.12.1 — 2026-05-25
 
 ### Added — engine ignition / shutdown chirps + idle hum
