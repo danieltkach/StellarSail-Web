@@ -8,6 +8,20 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.13.2 — 2026-05-25
+
+### Added — cancel active contract from Ops Center
+
+Pilots can now bail on a contract they accepted by accident or
+changed their mind on. New `[C]` action appears under the left-side
+ACTIVE CONTRACT box whenever there's a mission on file. Pressing it
+opens a two-key confirmation (`[Y]` drops it, `[N]`/Esc keeps it) so a
+fat-finger can't blow away an active haul. Dax handles the dialog —
+including a small explanation that the payout is forfeit. No
+reputation cost yet; that lands with the upcoming reputation system.
+
+---
+
 ## v0.13.1 — 2026-05-25
 
 ### Fixed — PDA Cargo tab "ITEMit 100 / 100" header collision
