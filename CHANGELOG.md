@@ -8,6 +8,25 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.12.3 — 2026-05-25
+
+### Added — per-system on/off chirps + active-systems pad
+
+The four ship systems (Electrical / Security / Life Support / Hull
+Seals) now have audible state, matching the engines work from v0.12.1:
+
+- **On / off chirps** — each system has a distinct base pitch so the
+  pilot can hear *which* system they flipped: Electrical 720 Hz (crisp),
+  Security 440 Hz (alarm-panel cue), Life Support 330 Hz (warm),
+  Hull Seals 200 Hz (deep). Rising on-chirp, falling off-chirp.
+- **Active-systems pad** — new `SystemsHumProvider` holds a quiet
+  three-layer tonal pad (55 / 110 / 220 Hz) whose volume scales with
+  how many systems are powered on. Four on → audible "ship is alive"
+  hum; zero on → silent. Capped well below the engine hum so the
+  motor work stays the dominant sound.
+
+---
+
 ## v0.12.2 — 2026-05-25
 
 ### Fixed — `[4] Report cargo` no longer looks like a fourth mission
