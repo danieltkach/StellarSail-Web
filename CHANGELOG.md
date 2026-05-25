@@ -8,6 +8,23 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.12.1 — 2026-05-25
+
+### Added — engine ignition / shutdown chirps + idle hum
+
+Each of the six engines now has audible state:
+
+- **Ignition chirp** — a short rising note (180-355 Hz depending on engine
+  number) plays when an engine is powered on. The pilot can audibly tell
+  *which* engine they just toggled.
+- **Shutdown chirp** — mirror of ignition. Same pitch, falling note.
+- **Idle hum** — `EngineProvider` now accepts the live active-engine count;
+  with engines powered on but no thrust + no velocity (sitting on the launch
+  pad post-checklist), a quiet rumble holds proportional to how many are
+  on. Six engines = a subtle background presence; one engine = a whisper.
+
+---
+
 ## v0.12.0 — 2026-05-25
 
 ### Changed — asteroid surface is now a zone picker, not a 5×5 grid
