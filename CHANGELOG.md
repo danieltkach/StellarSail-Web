@@ -8,6 +8,41 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.12.0 — 2026-05-25
+
+### Changed — asteroid surface is now a zone picker, not a 5×5 grid
+
+The original asteroid surface had five identical rows of five identical
+rectangles — `[R]` to scan, `[X]` to extract per cell, `[G]` to drop a
+shaft. Now that the shaft mini-game owns mining proper, the surface has
+been rebuilt as a free-walk **dig-site picker**:
+
+- **3-10 irregular zones** are generated from the asteroid's name
+  (deterministic per body), each rendered as a colored disc with a
+  numbered badge (`[1]`..`[10]`). Three size classes (Small / Medium /
+  Large) in dark-yellow / yellow / cyan respectively.
+- Pilot walks the canvas with **WASD/arrows**, jumps directly to a
+  zone with **1-9** (or **0** for the tenth). The status line under
+  the canvas shows which zone the pilot is currently inside.
+- **`[G]` descends** into the shaft for whichever zone the pilot is
+  standing in — and the shaft is now **sized to that zone**:
+  - Small zones → 9-wide × 30-deep shaft (quick run, sparse veins)
+  - Medium zones → 15 × 50 (the previous baseline)
+  - Large zones → 21 × 80 (deep, dense, more loot per visit)
+
+`R` (scan) and `X` (extract) are gone — those cell-level actions were
+superseded by Phase 1's mine-shaft loop.
+
+### Fixed — pilot avatar trail on the surface
+
+`웃` is two console cells wide on most terminals; the old per-cell grid
+hid the issue because cells were 9 cols apart, but the new free canvas
+exposed it. `RefreshAfterMove` now wipes both cells of the previous
+footprint and restores the underlying zone tile (or badge character)
+before painting the avatar at its new position.
+
+---
+
 ## v0.11.2 — 2026-05-17
 
 ### Added — two-press confirmation before quitting with END
