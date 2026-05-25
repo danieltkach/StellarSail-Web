@@ -8,6 +8,29 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.13.0 — 2026-05-25
+
+### Added — in-flight compass strip + pitch ladder
+
+Until now, the pilot's only attitude readout in flight was the small
+text line at the bottom-left of the radar (`P:053/+26 | M:053/+26`).
+Two new always-on widgets overlay the SpatialScanner panel:
+
+- **Compass strip** across the top of the radar gutter (cols 17-40):
+  a sliding tape of 30° markers. Pointer `▲` is fixed at center, the
+  N/E/S/W cardinals slide as the ship yaws. Cardinals in yellow,
+  numeric headings in gray, dark-gray ticks underneath.
+- **Pitch ladder** down the left edge (col 4): a 9-row vertical
+  ladder centered on the horizon row. Diamond marker `◇` slides up
+  for nose-up pitch, down for nose-down. Cyan until ±60°, red beyond.
+  Live numeric polar readout sits at the horizon row.
+
+Both widgets diff-paint — they only redraw when the underlying yaw
+or polar actually changes enough to move a tape label or shift the
+marker row, so the per-frame cost is trivial.
+
+---
+
 ## v0.12.5 — 2026-05-25
 
 ### Changed — Asteroid A-1138 is now findable via the radio waterfall
