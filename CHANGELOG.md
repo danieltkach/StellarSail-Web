@@ -8,6 +8,51 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.17.0 — 2026-05-25
+
+### Fixed — PDA Cargo: Credits/Intel/Reputation moved to a right column
+
+Those three lines used to print after the cargo list, which pushed them
+off the bottom of the PDA panel once the catalog grew past ~12 items.
+They now live in a `PILOT LEDGER` block on the right side of the Cargo
+tab, in the same vertical band as `LIFE SUPPORT` — always visible,
+never clipped by the catalog length.
+
+### Added — icons in the Cargo Bay
+
+Every cargo item now carries an `Icon` + `IconColor`, and each section
+has a header glyph in `CargoCategoryInfo.Icon`:
+
+- Sections: General `⚙`, Mineral `⛏`, Fuel/Cryo `⚡`, Hazmat `☢`, Passengers `웃`
+- Items: Fuel Cells `⚡`, Machine Parts `⚙`, Biocultures `❀`, Medical
+  Supplies `⚕`, Scrap Metal `⛓`, ores `◉/◈/▪/♦/✱` (mirroring the shaft's
+  mineral glyphs), Water/Methane Ice `≈`, Sulfur `✦`.
+
+### Changed — Autopilot v2 (visible phases + brake-to-stop arrival)
+
+Three problems from v0.15:
+1. Phase transitions were silent — pilot saw "Autopilot ON" then guessed
+   what was happening from the speed gauge.
+2. Rotation at 30°/s was fast enough that the heading read as instant.
+3. The Approach phase held 5 km/s into the disengage radius, which felt
+   like the ship was about to slam the station.
+
+v0.17 fixes all three:
+
+- Each phase transition writes a Navigation-class line to the message
+  log: `Correcting course toward Glaciar Perito Moreno…` →
+  `Course corrected. Cruising at 50 km/s.` → `Approach phase — braking
+  into Glaciar Perito Moreno.` → `Arrived. Autopilot disengaged.`
+- Rotation slowed to 15°/s so the cockpit reads "correcting" rather than
+  "snapped." Alignment threshold tightened to 0.98 so the Aligning phase
+  actually runs in most cases.
+- Approach phase uses a **cubic** taper from the captured cruise speed
+  down to 1 km/s (was 5 km/s linear) — gentle deceleration far out,
+  harder braking near the pad. At disengage radius the autopilot zeroes
+  the velocity vector and hands off to the pilot at a true stop.
+
+---
+
 ## v0.16.0 — 2026-05-25
 
 ### Added — Cargo Bay panel with separate compartments
