@@ -8,6 +8,20 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.12.5 — 2026-05-25
+
+### Changed — Asteroid A-1138 is now findable via the radio waterfall
+
+Asteroid A-1138 used to ship with `frequency: 0.0` (radio-silent),
+which meant a prospector at Puerto San Julián had no way to discover
+it through the telescope's spectrum/waterfall — you had to already
+know its coordinates. Set its emission to **0.4 MHz** (faint thermal
+signature) so you can now sweep azimuth/polar with the telescope ON
+and watch for a vertical stripe in the waterfall at the 0.4 MHz bin,
+then lock with `L`.
+
+---
+
 ## v0.12.4 — 2026-05-25
 
 ### Added — mining-loop sound effects
