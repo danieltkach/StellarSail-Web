@@ -8,6 +8,33 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.20.1 — 2026-05-25
+
+### Fixed — telescope was draining the fuel tank instead of the battery
+
+`TelescopeController.ConsumeReceiverPower` was deducting its per-tick
+draw from `gameState.Fuel` (rocket propellant!) every frame the
+telescope wasn't `Off`. With the telescope on `Auto` from a docked
+spawn, the tank drained while the pilot sat idle in the bay.
+
+`GameState.Battery` was always the intended sink (per its existing
+comment: "drained by power-hungry systems (telescope, life support)")
+— it just wasn't wired up. The receiver now draws from `Battery`
+(0..100), so at gain 1.0 the reserve lasts ~33 minutes of continuous
+use; gain² escalates the drain quadratically so the gain knob has
+real economic weight without leaking into the fuel system.
+
+Renames `BaseReceiverFuelRate` → `BaseReceiverPowerRate` and
+`GetReceiverFuelRate` → `GetReceiverPowerRate` to match. No save
+migration needed (Battery already round-trips).
+
+Note: Battery has no recharge path yet — a follow-up will wire an
+"engine alternator" recharge while engines are active plus a Fuel
+Depot battery top-off. For now the receiver drain is just a slower
+trickle than it was, and the fuel tank stays put when you do.
+
+---
+
 ## v0.20.0 — 2026-05-25
 
 ### Added — 8 new skills + 3-category structure (18 total)
