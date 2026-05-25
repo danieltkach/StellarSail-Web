@@ -8,6 +8,34 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.16.0 — 2026-05-25
+
+### Added — Cargo Bay panel with separate compartments
+
+New full-screen view, opened with the global `[C]` key from any non-text /
+non-active-flight mode (the same exclusion list as the PDA's `[P]`).
+Closes with `[Esc]` or `[C]` again, restoring the mode you came from.
+
+The bay shows the pilot's stock split across categories instead of one
+flat list — each item is now tagged with a `CargoCategory`:
+
+- **General** (100 cap) — MachineParts, Biocultures, MedicalSupplies, ScrapMetal
+- **Mineral** (150 cap) — iron / nickel / copper / silicates / quartz / titanium / palladium / rare-earth / platinum
+- **Fuel / Cryo** (80 cap) — FuelCells, Water Ice, Methane Ice
+- **Hazmat** (30 cap) — Sulfur Deposit (sealed compartment for fume-prone goods)
+- **Passengers** (4 souls) — head-count, driven by new `Pilot.Passengers` int
+
+Per-section capacities are advertised but storage is still the unified
+`Pilot.CargoHold` dictionary — v0.16 ships the "all-upgraded" stock
+configuration. Future work will introduce real per-section capacity,
+per-ship-class configs (smaller ships locked out of Hazmat etc.),
+upgrade gating, and section-to-section transfer.
+
+`Pilot.Passengers` round-trips through the save schema; older saves
+load with 0 souls aboard.
+
+---
+
 ## v0.15.0 — 2026-05-25
 
 ### Changed — autopilot now owns velocity, not just attitude
