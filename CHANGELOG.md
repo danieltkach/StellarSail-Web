@@ -8,6 +8,72 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.18.3 — 2026-05-25
+
+### Fixed — PDA ↔ Cargo soft-lock
+
+Opening one with the other already open used to leave both `_returnMode`
+and `CargoSection.PreviousMode` referencing each other, so neither
+close-key could find its way back to the original cockpit mode. Now
+the two are **mutually exclusive**:
+
+- Global `[P]` doesn't open the PDA while CargoSection is the active
+  mode (existing exclusion list extended to include `CargoSection`).
+- Global `[C]` doesn't open the Cargo Bay while PDA is the active mode
+  (and only fires at all while the pilot is on-ship — see below).
+
+### Changed — Cargo Bay only opens when on-ship
+
+The bay is part of the ship, so `[C]` only triggers from cockpit modes:
+`Flight`, `LandingShutdown`, `LaunchPad`, `BayCockpit`. Pressing `[C]`
+from a station module (Trading Post, Repair Bay, etc.), the asteroid
+surface, or the mine shaft no longer does anything; the pilot can
+still see the same data via the existing module screens.
+
+### Fixed — PDA screen-frame right-margin asymmetry + missing bottom edge
+
+The inner CRT-phosphor frame was drawn at `right = InnerWidth - 3` and
+`bottom = Height - 4`, which left a 3-column gap on the right (vs 1
+column on the left) and put the bottom edge directly above a row that
+NavCalc occasionally writes into, so it would appear partially erased.
+Frame now uses `right = InnerWidth - 1` (1-column symmetric gap on
+both sides) and `bottom = Height - 3` (one row farther from the
+content area).
+
+### Changed — pitch numeric readout removed
+
+The polar-angle text next to the pitch ladder (`+25.0° ⇕`) duplicated
+the value already shown in `DrawDirection` at the bottom of the
+SpatialScanner. Removed; the diamond marker `◇` on the ladder is the
+single attitude indicator. Pre-existing cells get wiped each tick to
+clear ghosts from older paints.
+
+### Changed — landing/launch right panel no longer shows altitude text
+
+`StationInfoPanel.DrawLive` used to print `Altitude: NNNm` near the top
+of the right column during the cockpit-landing views. The same number
+already lives on the LandingHud altimeter ribbon, so the duplicate
+text was visual noise. Removed.
+
+### Changed — compass tape labels every 60° + cardinals only
+
+The 30°-interval labels (`030`, `060`, `120`, `150`, ...) crammed
+together at the cone edges, e.g. "120150" with no breathing room. The
+tape now shows N / E / S / W (cardinals, yellow) plus the 60° marks
+(60 / 120 / 240 / 300, gray) — 8 labels per 360° instead of 12, plenty
+of horizontal margin.
+
+### Changed — starfield density tweaked + clustered
+
+Star count down ~17% (180 → 150). The 150 are split: 120 uniformly
+distributed across the celestial sphere as before, plus 30 split among
+**3 clusters** with tight Gaussian-ish jitter (`±0.12` stddev on each
+axis, then renormalized to the sphere). Some patches of sky now read
+as crowded knots while the rest of the cone is sparser — closer to a
+spiral-arm sky than a uniform fog of dots.
+
+---
+
 ## v0.18.2 — 2026-05-25
 
 ### Changed — stars get spectral color + per-star twinkle
