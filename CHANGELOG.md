@@ -8,6 +8,17 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.14.2 — 2026-05-25
+
+### Changed — auto-landing window tightened to 10m
+
+`AutolandMaxAltitude` lowered from 20m to 10m. ENTER now only arms the
+autoland sequence once the ship is in the final approach band, making
+the autopilot's "drive every axis to zero" feel like a true landing
+assist rather than a takeover from cruise altitude.
+
+---
+
 ## v0.14.1 — 2026-05-25
 
 ### Changed — landings now start at 500m instead of 200m
