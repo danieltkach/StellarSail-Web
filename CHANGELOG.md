@@ -8,6 +8,67 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.19.0 — 2026-05-25
+
+### Changed — PDA tab rework: Cargo out, Profile + Contacts in
+
+The PDA's full-screen Cargo tab is gone — that role belongs to the
+dedicated Cargo Bay panel (`[C]`) shipped in v0.16. Two new tabs take
+its place:
+
+- **[2] PROFILE** — pilot identity (name, age, health gauge), the
+  ledger (credits / intel / reputation), life support (suit + ship O2),
+  a bio line, a **skill matrix**, and a derived **achievements**
+  block.
+- **[3] CONTACTS** — list/detail of every NPC the pilot can encounter,
+  with comm-channel address ("RB-7.3 / SJulián"), short bio, and the
+  services each one provides. Contacts the pilot hasn't met yet show
+  as dim "you haven't met this contact yet" stubs until the
+  associated station is discovered.
+
+New tab order: `[1] CONTRACT [2] PROFILE [3] CONTACTS [4] LOGBOOK
+[5] CHARTS [6] NAV CALC`.
+
+### Added — Pilot Skills (data model)
+
+Ten skills tracked on `Pilot.Skills`, split into two groups:
+
+- **Science** — Math `∑`, Physics `φ`, Chemistry `⚗`, Astronomy `⊙`,
+  Rocketry `⚛`
+- **Practical** — Piloting `✈`, Engineering `⚙`, Combat `⚔`,
+  Trading `⚖`, Research `λ`
+
+Each is an integer 0..10, all starting at **1** (novice). Round-trips
+through the save file. Progression mechanics (which actions raise
+which skill) are deferred — the data model is the v0.19 hook.
+
+Also new on `Pilot`: `Age` (default 28), `Bio` (string, empty by
+default — gets populated by future background/arc content),
+`Health` (0..100, separate from `GameState.HullDamage`).
+
+### Added — Contact Registry
+
+Static catalog of station NPCs in `ContactRegistry.All`: Vance (Crew
+Chief), Mara (Pumps), Greta (Welder), Quill (Broker), Dax (Dispatcher),
+plus the three ATC voices (San Julián / Glaciar / Piedrabuena). Each
+contact has a comm channel handle, a paragraph bio reused from the
+existing in-game dialog, and a short services list. "Met" status is
+derived from `GameState.DiscoveredObjects` so the list reveals itself
+as the pilot travels.
+
+### Changed — Nav Calc layout: three columns + history pane
+
+The Δx/Δy/Δz block used to live cramped next to the raw coordinate
+readout. Now there are **three header columns**: TARGETS (left),
+RAW INPUTS (middle, ship + target coords only), DELTAS (right, just
+the three deltas with more breathing room). Formulas band stays full
+width below. The **calculator gets a taller stack pane** (3 entries
+visible instead of 2) and a **HISTORY column on the right** showing
+the most recent submitted lines — pilot can read back what they
+already computed without losing their stack.
+
+---
+
 ## v0.18.3 — 2026-05-25
 
 ### Fixed — PDA ↔ Cargo soft-lock
