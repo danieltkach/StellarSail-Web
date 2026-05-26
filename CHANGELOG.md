@@ -8,6 +8,58 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.22.17 — 2026-05-26
+
+### Added — Shipyard showroom ([Y] from the Hangar)
+
+The Hangar now has a `[Y] Walk over to the Shipyard (Marisol's bays)`
+action that opens a new full-screen panel: five demo bays, one per
+hull design.
+
+- **←/→** walks between bays. The focused bay paints the design's
+  9×18 silhouette + name plaque (same art the home Hangar uses).
+- **Right pane** is **Yard Boss Marisol's** dialog log + a spec card
+  showing the list price, the net price after trade-in (your current
+  hull sells back at full sticker), and your credits. The line goes
+  green when the focused hull is the one already in your bay, yellow
+  when the deal is feasible, and dark gray when you're short.
+- **[B]** closes the deal: deducts the net price, swaps
+  `gameState.ShipDesign`, and you'll see the new hull parked in Bay 5
+  next time you swing by the Hangar.
+- **[E] / [Esc]** walks back to Crew Chief Vance.
+
+List prices: Pact Runner 0¤ (starter), Pack Mule 800¤, Falcón 1200¤,
+Quarry 1500¤, Patagonia 2500¤.
+
+### Changed — Autopilot keeps the throttle in pilot hands until approach
+
+Engaging autopilot no longer locks the ship to a captured "cruise
+speed." The phases now do this:
+
+- **Aligning** — autopilot rotates the nose toward the target.
+  Velocity is **untouched**; the pilot is free to thrust / brake.
+- **Cruising** — autopilot keeps the nose on target. Velocity is
+  **untouched**; the pilot still has full throttle authority.
+- **Approaching** — at the approach radius, the autopilot captures
+  the current ship speed as the entry speed and **takes velocity
+  control**: cubic-tapered brake from entry speed down to a small
+  arrival crawl, then disengages at the dock. Pilot thrust is
+  overridden each tick — the only way to recover manual throttle is
+  to disengage the autopilot.
+
+The on-engage toast no longer advertises a fake "cruise X km/s"
+number; it reads "Holding heading; throttle stays with you until
+approach."
+
+### Fixed — San Julián map: right margin against the bay
+
+The Bahía water band stopped two columns short of the panel's right
+edge, leaving a visible margin gap. The bay now extends out to
+`InnerWidth - 2` (one cell off the chrome) so the coastline reads as
+the right edge of the map.
+
+---
+
 ## v0.22.16 — 2026-05-26
 
 ### Added — Five hull designs (`Pact Runner`, `Pack Mule`, `Falcón`, `Patagonia`, `Quarry`)
