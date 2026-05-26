@@ -8,6 +8,52 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.22.16 — 2026-05-26
+
+### Added — Five hull designs (`Pact Runner`, `Pack Mule`, `Falcón`, `Patagonia`, `Quarry`)
+
+Stellar-Sail now ships **five visual hull designs**. All five share
+gameplay stats this release — the differentiation (cargo / speed /
+passengers / hazmat) lands in a follow-up. What's in today:
+
+- Each design has its own 9×18 bay silhouette and a compact 4×4
+  surface-view sprite.
+- HangarDetailPanel reads `gameState.ShipDesign` and paints the
+  appropriate art + name plaque ("— Pact Runner —", etc.) under the
+  silhouette in the design's accent color.
+- The asteroid surface bottom-left now shows the same hull (mini
+  version) so the pilot always sees where they parked and recognizes
+  their ride at a glance.
+- New field persists in saves (`SaveFile.ShipDesign`); pre-v0.22.16
+  saves load as `Standard` (the legacy Pact Runner).
+
+Taglines (placeholder, for the future Shipyard menu):
+
+| Design       | Tagline                                                       |
+|--------------|---------------------------------------------------------------|
+| Pact Runner  | Balanced workhorse — solid at everything.                     |
+| Pack Mule    | Heavy cargo. Slower, drinks fuel, moves twice the manifest.   |
+| Falcón       | Light and fast. Couriers swear by it.                         |
+| Patagonia    | Passenger work. Eight bunks and panoramic glass.              |
+| Quarry       | Sealed bay, radiation-rated. Specialized contracts only.      |
+
+### Changed — Asteroid surface: zones unnumbered + ship visible
+
+- **Zone badges (`[1]`, `[2]`, …) removed.** The pilot eyeballs the
+  layout and judges whether their O2 + battery budget can carry them
+  to a zone and back. Zone size still telegraphs through color
+  (DarkYellow / Yellow / Cyan).
+- **`[1-9, 0] Jump to zone` shortcut removed.** Walk there.
+- **Ship sprite at the bottom-left** of the surface canvas — same hull
+  the pilot is flying, in the design's accent color, with a small
+  "SHIP" label. Zone generation steers clear of the sprite footprint
+  via a circle/rect overlap test, and the pilot-wipe restores the
+  sprite glyphs underneath when the EVA crosses the cell.
+- Status line and bottom hint updated to drop the zone-ID and
+  jump-shortcut references.
+
+---
+
 ## v0.22.15 — 2026-05-26
 
 ### Changed — Nav Calc history: two-row entries (input dim, result cyan)
