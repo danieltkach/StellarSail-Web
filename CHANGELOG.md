@@ -8,6 +8,24 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.22.6 — 2026-05-25
+
+### Changed — SJ city: description auto-shows for current place
+
+In Base Puerto San Julián, the dialog pane now always shows **only**
+the description for the cell the pilot is standing on. Walking with
+the arrow keys auto-replaces the text — previous descriptions never
+linger.
+
+- Dialog moved from a 4-entry scrolling log to a single-entry display.
+- Each arrow press auto-shows the new place's description (third-person
+  narration or NPC line).
+- Enter is now reserved for *real* interactions. Today that's just the
+  market door at **La Tostadora Moderna** (opens the Trading Post).
+  Future patches will hang home-rest and NPC mini-dialogs off it.
+
+---
+
 ## v0.22.5 — 2026-05-25
 
 ### Added — ESC cancels the pending END quit
