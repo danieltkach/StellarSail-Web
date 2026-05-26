@@ -8,6 +8,40 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.22.3 — 2026-05-25
+
+### Changed — San Julián city: streets cross (Av. SM × Pellegrini)
+
+Av. San Martín and Pellegrini are **perpendicular** in the real
+Puerto San Julián, not parallel. The previous layout had them as
+parallel horizontal bands — fixed.
+
+The new map:
+
+- **Av. San Martín** runs vertically through column 2 (Municipalidad,
+  Iglesia Sagrado Corazón, Plaza, Gimnasio).
+- **Pellegrini** runs horizontally across row 3 (Casa Maruja, Plaza,
+  Pellegrini 1285 — the pilot's home, Hospital).
+- **Av. Costanera** runs vertically along column 4 (Faro,
+  Nao Victoria, Hospital — bay-side).
+- **Plaza San Martín** sits at the **intersection** of Av. San Martín
+  and Pellegrini — faithful to the real grid.
+
+The map renders all three streets as dashed overlays with labels at
+their ends so the geometry is visually obvious.
+
+### Fixed — City map crash on certain direction hints
+
+`SanJulianCityPanel.DrawEntranceHint` was crashing with an
+`ArgumentOutOfRangeException` at cells whose four-direction hint plus
+the action label exceeded panel width — the centered-x coord went
+negative. Now: hint is truncated to inner width before centering, and
+the start coord is clamped to ≥ 1. Direction hints also use shorter
+location nicknames (e.g., "Pellegr. 1285", "Tostadora") to fit on one
+line.
+
+---
+
 ## v0.22.2 — 2026-05-25
 
 ### Changed — San Julián city now matches real Puerto San Julián geography
