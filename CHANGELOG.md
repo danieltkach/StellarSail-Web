@@ -8,6 +8,27 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.22.1 — 2026-05-25
+
+### Added — Trading Post reachable from inside the city
+
+City-bearing stations no longer drop trading from the loop. The
+Trading Post is now reachable as a building **inside** the city:
+
+- At **Glaciar Perito Moreno**, `[Enter]` on the **Market** opens
+  Quill's floor.
+- At **Base Puerto San Julián**, the Mercado is renamed
+  **"La Tostadora Moderna"** and serves the same purpose — `[Enter]`
+  there opens the Trading Post.
+
+`TradingPostPanel.ReturnMode` (new field) captures which mode entered
+trading, and exit restores it — so finishing a transaction inside a
+city walks the pilot back onto the city floor instead of all the way
+to the station map. Piedrabuena's station-tile entry keeps the
+original "back to StationMenu" behavior unchanged.
+
+---
+
 ## v0.22.0 — 2026-05-25
 
 ### Added — Base Puerto San Julián city map (real-world Puerto San Julián, Argentina)
