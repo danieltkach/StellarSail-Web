@@ -8,6 +8,22 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.22.8 — 2026-05-25
+
+### Changed — SJ city: Av. San Martín widens, Maruja's ↔ Tostadora swap
+
+- **Av. San Martín** now renders with a real median strip — top `═══`
+  lane, blank middle row with "AV. SAN MARTÍN" centered in it, bottom
+  `═══` lane. Pellegrini crosses both lanes with a `╪` at each, the
+  median between them stays open.
+- **La Tostadora Moderna** moved to Col 1 (Pellegrini foot); **Maruja's**
+  moved to Col 2. Row 4 is now Mercado → Maruja's → Plaza España →
+  Cascada.
+- Rows 2/3/4 shifted down one to absorb the new avenue median row,
+  preserving spacing.
+
+---
+
 ## v0.22.7 — 2026-05-25
 
 ### Changed — SJ city: layout polish
