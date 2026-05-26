@@ -8,6 +8,17 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.22.9 — 2026-05-26
+
+### Changed — SJ city: wider Bahía San Julián
+
+The east edge of the map now renders **seven** columns of `~` water
+(was one), giving the bay real visual presence on the right side of
+the map. Col-5 building labels still paint cleanly on top — the bay
+draws before the map.
+
+---
+
 ## v0.22.8 — 2026-05-25
 
 ### Changed — SJ city: Av. San Martín widens, Maruja's ↔ Tostadora swap
