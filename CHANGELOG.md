@@ -8,6 +8,20 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.22.10 — 2026-05-26
+
+### Changed — SJ city: avenue ends at the costanera, bay widens, map drops
+
+- **Av. San Martín** lanes (and the median strip with the name) now
+  terminate one column before Muelle Viejo, so the avenue reads as
+  ending at the costanera rather than running off the right edge.
+- **Bahía** widens to **eight** columns of `~` water (was seven).
+- The whole grid shifted **one row down** (Row 1 from y=4 to y=5,
+  with rows 2–4 and the avenue tracking along) so the top edge has a
+  little more breathing room above the title.
+
+---
+
 ## v0.22.9 — 2026-05-26
 
 ### Changed — SJ city: wider Bahía San Julián
