@@ -8,6 +8,18 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.22.11 — 2026-05-26
+
+### Changed — SJ city: bay texture (mixed glyphs + shades)
+
+The Bahía band on the east edge no longer renders as a single column
+of flat `~`. Each cell now picks from `~ ≈ · °` and from DarkBlue /
+Blue / DarkCyan / Cyan using a stable per-(x,y) hash — so the bay
+looks like open water with swells, droplets, and the odd light glint,
+and the pattern doesn't flicker between frames.
+
+---
+
 ## v0.22.10 — 2026-05-26
 
 ### Changed — SJ city: avenue ends at the costanera, bay widens, map drops
