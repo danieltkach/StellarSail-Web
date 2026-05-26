@@ -8,6 +8,23 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.22.5 — 2026-05-25
+
+### Added — ESC cancels the pending END quit
+
+Press END to arm the quit-confirmation window (5 seconds), and any of
+these now work:
+
+- **END again** within the window → quits as before.
+- **ESC** within the window → **cancels** the pending quit (new). The
+  ESC is swallowed so it doesn't double-fire on whatever panel happens
+  to be open.
+- Otherwise the window expires silently after 5 s.
+
+Toast and message wording updated to mention ESC as the cancel option.
+
+---
+
 ## v0.22.4 — 2026-05-25
 
 ### Changed — San Julián city: hand-drawn map layout, 16 locations
