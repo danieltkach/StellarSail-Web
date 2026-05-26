@@ -2,7 +2,7 @@
 
 A space sim with a procedurally-generated cockpit, radio-astronomy mechanics, and physics-based flight + landing.
 
-**Current version: v0.22.3**
+**Current version: v0.22.4**
 
 ## ► Play
 

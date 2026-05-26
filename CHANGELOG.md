@@ -8,6 +8,37 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.22.4 — 2026-05-25
+
+### Changed — San Julián city: hand-drawn map layout, 16 locations
+
+Re-laid out the city to match the pilot's own hand-drawn map of Puerto
+San Julián. Av. San Martín runs **horizontally** as a thick double-line
+avenue across the upper-middle; Pellegrini runs **vertically** along
+the western edge; the Bahía San Julián curves the east edge.
+
+**New locations:** Laguna Seca, Camping, Muelle Nuevo, Centro
+Artesanos, Monumento a la Primera Misa, Salón de Arcades, Muelle
+Viejo, Cine Talia, La Cascada, Plaza España.
+
+**Removed:** Hospital, Faro, Museo Nao Victoria, Municipalidad, Banco,
+Gimnasio, Heladería (not on the pilot's working map of the town).
+
+**Renamed:** Cine-Teatro → **Cine Talia** (the real Patagonian
+cinema's name), Plaza San Martín → **Plaza España** (Pellegrini-side
+plaza per the pilot's map).
+
+**Repositioned:** La Cascada moved to the bay edge directly below
+Muelle Viejo (its real geography); Muelle Nuevo sits in the north band
+between Camping and Centro Artesanos.
+
+The map now renders the avenue as a thick `═` double-line with the
+label between the two lines, Pellegrini as dashed `:` verticals
+crossing the avenue at a `╪` intersection glyph, and the bay as a
+`~~~` coastline on the east edge.
+
+---
+
 ## v0.22.3 — 2026-05-25
 
 ### Changed — San Julián city: streets cross (Av. SM × Pellegrini)
