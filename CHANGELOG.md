@@ -8,6 +8,38 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.22.0 — 2026-05-25
+
+### Added — Base Puerto San Julián city map (real-world Puerto San Julián, Argentina)
+
+A second walkable city behind a station's atrium, mirroring the Glaciar
+Perito Moreno pattern shipped earlier. Inspired by the real Puerto San
+Julián in Santa Cruz Province, Argentina.
+
+Fifteen sub-locations across four bands:
+
+- **Institutional (north)** — Hospital Padre Quinteros ✚ · Iglesia
+  San José ✟ · Museo Regional ◇ · Faro / Mirador ★
+- **Av. San Martín (commercial spine)** — Casa Ingrid ❀ (gifts) ·
+  Plaza San Martín ✦ (hub) · Restaurante Argensud ⌖ · Gimnasio
+  Municipal ⚒
+- **Pellegrini (residential)** — Maruja's Piano School ♬ · **Pellegrini
+  1285 ⌂ (the pilot's home)** · Mercado Central ⊞ · Banco Santa Cruz $
+- **Costanera (waterfront)** — Heladería ✱ · Costanera · Nao Victoria
+  replica ≈ · Cine-Teatro ♪
+
+Same idiom as Glaciar — the Trading Post slot in the station map is
+repurposed as a City Gate ↗ that walks the pilot into the city; the
+StationMenu arrow hints relabel `Trading` → `City Gate`. Trading still
+works at Piedrabuena Station (the only station of the three Pact
+charters that keeps its market).
+
+Each location currently shows flavor dialog on `[Enter]` — mechanical
+effects (sleeping at home for a save, taking piano lessons for a
+skill bump, etc.) land per-location in follow-up commits.
+
+---
+
 ## v0.21.1 — 2026-05-25
 
 ### Changed — RPN history shows results, not just inputs
