@@ -8,6 +8,25 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.21.1 — 2026-05-25
+
+### Changed — RPN history shows results, not just inputs
+
+`RpnCalculator.History` entries now capture both the submitted line and
+its result. Each line reads as `<input>  =  <top>` after a successful
+evaluation, or `<input>  →  err: '<token>'` when a token didn't parse.
+The NavCalc HISTORY pane reads naturally now — e.g. `300 400 atan2  =
+36.869898` — instead of just echoing the command back.
+
+### Changed — Asteroid renamed Plgn-1285 → PLGRN-1285
+
+Save migration shim updated: `_objectRenames` chains the rename so
+saves that still carry the older `Plgn-1285` (or the original
+`Asteroid A-1138` / `Asteroide A-1138`) all resolve to `PLGRN-1285` on
+load. No data loss on the in-progress save.
+
+---
+
 ## v0.21.0 — 2026-05-25
 
 ### Added — battery recharge: engine alternator + Fuel Depot top-off
