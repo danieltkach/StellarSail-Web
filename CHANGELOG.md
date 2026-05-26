@@ -8,6 +8,25 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.22.7 — 2026-05-25
+
+### Changed — SJ city: layout polish
+
+- **Cascada** moved further down to Row 4 (was Row 3) so it sits at
+  the bay edge in the south band.
+- **Plaza España** shifted one column to the right (Col 4 instead of
+  Col 3) to match the pilot's map.
+- **Casa Maruja** renamed to just **"Maruja's"** (was "Maruja's Piano
+  School").
+- Description text dropped one row (now y=22) for visual breathing
+  room between the bottom building row and the dialog.
+
+Graph edges updated: Plaza España now connects up to Argensud and
+right to Cascada; Cine Talia no longer reaches Cascada horizontally
+(walk down via Argensud instead).
+
+---
+
 ## v0.22.6 — 2026-05-25
 
 ### Changed — SJ city: description auto-shows for current place
