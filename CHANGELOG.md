@@ -8,6 +8,43 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.22.13 — 2026-05-26
+
+### Fixed — Active mission persisted with old asteroid name
+
+A save written when the asteroid was called *Asteroid A-1138* (or
+*Plgn-1285*) was loading back with that old name on the active
+mission's Origin / Destination / cargo description — the rename map
+was only being applied to discovered objects, locked targets, and the
+logbook. `ActiveMission` fields now also run through
+`MigrateObjectName` / `ApplyAllRenamesToText` on load, so the PDA and
+Ops board show the current canonical *PLGRN-1285*.
+
+Fresh mission listings were never affected because they regenerate
+from the current `Environment`; only the persisted active contract
+was sticky.
+
+### Fixed — Whole-screen flicker while typing in the Nav Calc
+
+Every PDA keystroke was calling `panel.Draw()`, which wipes the
+entire 21-row PDA body black before repainting. New `RefreshCalcArea`
+repaints only the 4-row calc + history pane, so AppendChar /
+Backspace / Enter / Esc-clear-status no longer flash the whole panel.
+Leaving focus (Esc when no status / no result) still does a full
+redraw because the footer legend swaps between focused/unfocused.
+
+### Changed — Nav Calc keeps the last result on screen in cyan
+
+The Submit result no longer disappears the moment the pilot types the
+next character. A new `LastResult` field on the RPN calculator
+persists across edits and renders below the input in **cyan**, so
+even when the history line truncates (e.g. `3000 1000 sq 2000 sq +
+sqrt atan2 …`) the answer stays visible right under the cursor.
+Errors still take precedence (red, transient — gone on the next
+keystroke). Esc walks: dismiss error → dismiss result → leave focus.
+
+---
+
 ## v0.22.12 — 2026-05-26
 
 ### Added — SJ city bay: boats at anchor
