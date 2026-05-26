@@ -8,6 +8,19 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.22.18 — 2026-05-26
+
+### Changed — SJ city: description block is narrower and one row lower
+
+The location-description text in the San Julián city panel now sits
+one row further down (`dy: 22 → 23`) and is capped at 80 columns
+wide (`dw: InnerWidth − 4 → 80`) with an 8-column left indent
+(`dx: 2 → 8`). `rowsAvailable` drops from 4 to 3 to avoid colliding
+with the hint separator beneath; very long flavor lines truncate
+gracefully on the third row.
+
+---
+
 ## v0.22.17 — 2026-05-26
 
 ### Added — Shipyard showroom ([Y] from the Hangar)
