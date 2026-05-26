@@ -8,6 +8,28 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.22.15 — 2026-05-26
+
+### Changed — Nav Calc history: two-row entries (input dim, result cyan)
+
+Each history entry now renders across **two rows**:
+
+```
+3000 1000 sq 2000 sq + sqrt atan2   ← dim gray
+= 53.300775                          ← cyan
+```
+
+The answer never has to share a row with the (potentially long) input,
+so it's always whole and always visible. Reclaimed one row from the
+formulas/calc spacer (calcY moved from `fY+5` to `fY+4`) so the
+history pane has room for **two full pairs**.
+
+If an odd row is left over, it shows the input of the next-older
+entry in dim gray so the pilot sees that more history exists without
+half-rendering a pair.
+
+---
+
 ## v0.22.14 — 2026-05-26
 
 ### Fixed — Nav Calc history: result was hidden when input was long
