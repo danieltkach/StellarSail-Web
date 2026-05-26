@@ -8,6 +8,59 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.21.0 — 2026-05-25
+
+### Added — battery recharge: engine alternator + Fuel Depot top-off
+
+Battery now has both ends of a real resource loop:
+
+- **Engine alternator** — each powered-on engine trickle-charges the
+  ship battery at 0.10/sec. Six engines net ~0.6/sec, enough to be
+  power-positive against the telescope at gain ≤ 1.5 with two
+  engines on. In-flight pilots stay charged passively; parked with
+  engines off, the receiver still drains until the next refuel.
+- **Fuel Depot top-off** — Mara's `[3]` action now refills the ship
+  battery alongside the suit + ship O2, same flat 50¤. Action label
+  updated to `[3] Top off ship O2 + battery (50¤)`.
+
+Closes the half-built battery system left open in v0.20.1.
+
+### Changed — Asteroid A-1138 renamed to Plgn-1285
+
+`test_objects.json` and the description updated. Save migration shim
+(`SaveSystem._objectRenames`) silently rewrites `lockedTargetName`,
+`DiscoveredObjects`, and `MissionsCompleted` references on load —
+older saves keep loading without losing their lock or logbook lines.
+
+### Changed — pilot default age 28 → 142
+
+Long-lifespan-civ-from-longevity-treatment-population vibe. Existing
+saves carry whatever age they had; new pilots default to 142.
+
+### Fixed — Engineering skill bar collided with the skill name
+
+`Engineering` is exactly 11 characters; the v0.20 skill row padded
+names to 11 and started the bar at the next col, so the bar abutted
+the final `g`. Padding bumped to 12 + bar shifted to `x+14` so the
+11-char names get a breathing space.
+
+### Changed — NavCalc deltas as integers; formulas without units
+
+Δx/Δy/Δz now print with no decimal places (`-1988` instead of
+`-1988.66`) — full precision lives in the RPN calc anyway. Formula
+lines no longer carry `→ degrees` / `→ km` annotations.
+
+### Fixed — NavCalc bottom overflow
+
+The calculator + history pane was rendering past the panel body
+(input row at row 29, status at row 30) and spilling into the device
+chrome. Layout compressed: stack down to a single visible top entry,
+separators under FORMULAS + RPN header removed, history empty-state
+trimmed to one line, footer hint pinned to the last body row.
+Everything fits inside the screen frame now.
+
+---
+
 ## v0.20.1 — 2026-05-25
 
 ### Fixed — telescope was draining the fuel tank instead of the battery
