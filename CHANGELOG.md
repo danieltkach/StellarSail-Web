@@ -8,6 +8,17 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.22.12 — 2026-05-26
+
+### Added — SJ city bay: boats at anchor
+
+Three vessels riding in the Bahía San Julián, painted on top of the
+water at fixed positions: two sailboats (`⛵` in white and gray) and a
+motor launch (`⛴`). Coordinates dodge the Col-5 building label rows
+so labels still read clean.
+
+---
+
 ## v0.22.11 — 2026-05-26
 
 ### Changed — SJ city: bay texture (mixed glyphs + shades)
