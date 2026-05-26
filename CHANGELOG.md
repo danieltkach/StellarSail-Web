@@ -8,6 +8,39 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.22.2 — 2026-05-25
+
+### Changed — San Julián city now matches real Puerto San Julián geography
+
+The 15-location city map has been re-laid out against actual street
+data for the real Puerto San Julián in Santa Cruz, Argentina (parish
+records of the Diócesis de Río Gallegos, the argentino.com.ar
+municipal directory, and the Codigo Postal street index were the
+source).
+
+**Real-world corrections applied:**
+
+- **Iglesia** renamed **Parroquia Sagrado Corazón de Jesús** (its
+  actual dedication; sits at Av. San Martín 235).
+- **Hospital Distrital Dr. Miguel Lombardich** moved from the
+  institutional row to **Av. Costanera** — its real address.
+- **Museo Regional** replaced by **Museo Temático Nao Victoria** —
+  the real full-size replica of Magellan's flagship at "punto cero"
+  of Patagonia, on the costanera.
+- **Argensud Cultural** flavor now reflects that the real venue is
+  a restaurant in the historic former general store.
+- **Municipalidad** added at the civic row (Av. San Martín 165 esq.
+  Zeballos — its real address).
+- **Teatro** renamed **Cine-Teatro** to reflect typical
+  small-town-Patagonia usage.
+
+**Layout** is now organized as four bands faithful to the actual
+street grid: civic / commercial north of Av. San Martín → plaza belt
+on Av. San Martín → Pellegrini (residential, including Pellegrini
+1285) → Av. Costanera (bay-side).
+
+---
+
 ## v0.22.1 — 2026-05-25
 
 ### Added — Trading Post reachable from inside the city
