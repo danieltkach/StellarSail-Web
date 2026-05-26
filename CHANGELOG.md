@@ -8,6 +8,27 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.22.14 — 2026-05-26
+
+### Fixed — Nav Calc history: result was hidden when input was long
+
+The history pane was truncating each entry from the right with an
+ellipsis, which chopped off the answer when the input expression was
+wide (e.g. `3000 1000 sq 2000 sq + sqrt atan2 …` — the `= 53.300775`
+fell off the end).
+
+New `TruncateHistory` keeps the `  =  <result>` (or `  →  err: '…'`)
+intact and ellipsizes the **input** from the left instead:
+
+```
+…+ sqrt atan2  =  53.300775
+```
+
+The answer is the part the pilot is reading for; the input head is
+the part that survives the trim.
+
+---
+
 ## v0.22.13 — 2026-05-26
 
 ### Fixed — Active mission persisted with old asteroid name
