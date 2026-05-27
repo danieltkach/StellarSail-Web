@@ -8,6 +8,22 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.22.20 — 2026-05-26
+
+### Fixed — Pilot age reverted to 28 on saves from before the "142" default
+
+The Pilot default age was bumped to 142 in an earlier release, but
+existing saves had `Age = 28` (the original v0.19 default) baked in
+— so on load the migration kept reading 28 forever.
+
+`SaveSystem.Apply` now treats `28` as a legacy sentinel and promotes
+it to `Pilot.DefaultAge` (= 142). Pre-v0.19 saves (no field, value 0)
+already promoted; this just adds the legacy-default case. Any other
+positive value is treated as a deliberate pilot choice and left
+untouched.
+
+---
+
 ## v0.22.19 — 2026-05-26
 
 ### Fixed — Station main terminal: top + bottom rule had a right-side gap
