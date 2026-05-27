@@ -8,6 +8,24 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.23.6 — 2026-05-27
+
+### Fixed — Clean touchdown could still crash the ship
+
+A landing at 1.0 m/s on AUTOLAND was destroying the ship because
+the hull-failure check fired on cumulative `HullDamage >= 99.5`
+regardless of whether *this* landing actually added damage. So a
+ship that had accumulated wear from earlier hard landings would
+detonate on its next clean set-down — message read
+*"impact 1.0 m/s (clean touchdown). Ship destroyed."*
+
+The crash now requires both: this landing added real damage
+(> 0.5) AND the cumulative hull is in the failure band. Clean
+touchdowns survive even on a battered hull (pilot earned the safe
+landing); catastrophic vertical-speed crashes still fire outright.
+
+---
+
 ## v0.23.5 — 2026-05-27
 
 ### Changed — Asteroid surface: pilot spawns at the ship, must walk back to board
