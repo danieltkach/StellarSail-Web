@@ -8,6 +8,37 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.23.2 — 2026-05-26
+
+### Fixed — Shipyard bay numbers didn't match the hangar floor
+
+Walking from "BAY 3" on the hangar floor opened the Shipyard with a
+header reading "DEMO BAY 7" (or similar). The two numbers had no
+relationship: the hangar bay number is the station's physical bay,
+while the Shipyard's "DEMO BAY N" was the design's index in
+`ShipDesigns.All`. Same number space, different meaning.
+
+The Shipyard header now reads `ON DISPLAY  ·  <NAME>` and the
+showroom progress counter reads `HULL N/total` instead of
+`BAY N/total`. The hangar floor owns the bay numbering; the Shipyard
+just shows the ship.
+
+### Added — Excavadora (heavy mining rig)
+
+Ninth hull design.
+
+| Hull        | Tagline                                                                |
+|-------------|-------------------------------------------------------------------------|
+| Excavadora  | Heavy mining rig. Twin shaft drills, reinforced ore bay, slow as a glacier. |
+
+Paints DarkGray. Bay-view silhouette has twin shaft drills mounted
+forward (`⌬═══⌬`) and the ore-bay reinforcement (`█` on the flanks);
+surface sprite shows the drills + pick block (`║⚒⚒║`). List price
+950,000¤ (between Cóndor and Patagonia). Parked in San Julián's
+**Bay 10** (heavy-load floor reinforcements live there).
+
+---
+
 ## v0.23.1 — 2026-05-26
 
 ### Changed — Shipyard is now reached by walking into a non-active bay
