@@ -8,6 +8,78 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.23.0 — 2026-05-26
+
+### Added — Walkable hangar floor (12 bays per station)
+
+Entering the Hangar from the StationMenu no longer drops the pilot
+straight onto Crew Chief Vance. There's a **hangar floor** in between
+now — twelve numbered bays in a horizontal strip. ←/→ walks the pilot
+between bays; each bay paints its frame in the resident ship's accent
+color with a compact silhouette inside. Empty bays show as dim gray
+"EMPTY" placeholders.
+
+- **Enter** on the active-ship bay (Bay 5) opens the existing Vance
+  dialog (status, board, unload, walk over to Shipyard, etc.).
+- **Enter** on a non-active occupied bay drops a flavor line in the
+  status row — buying / swapping into that hull happens at the
+  Shipyard for now; per-bay HangarDetail comes in a follow-up.
+- **Enter** on an empty bay says so. **[E]/[Esc]** walks back to the
+  station map.
+
+Leaving the Vance dialog now steps the pilot back onto the floor
+(HangarStrip) rather than all the way to the StationMenu — they can
+keep walking the bays.
+
+### Added — Two more hull designs (Cóndor surveyor, Cántaro tanker)
+
+Seven ships now in the catalog:
+
+| Design       | Tagline                                                         |
+|--------------|-----------------------------------------------------------------|
+| Pact Runner  | Balanced workhorse — solid at everything.                       |
+| Pack Mule    | Heavy cargo. Slower, drinks fuel, moves twice the manifest.     |
+| Falcón       | Light and fast. Couriers swear by it.                           |
+| Cántaro      | Bulk-liquid hauler. Fuel runs, water shuttles, coolant exchange.|
+| Quarry       | Sealed bay, radiation-rated. Specialized contracts only.        |
+| Cóndor       | Long-range survey rig. Spectrometer dish and dual radar pylons. |
+| Patagonia    | Passenger work. Eight bunks and panoramic glass.                |
+
+Cóndor paints green (sensor dish over the silhouette); Cántaro paints
+blue (twin liquid tanks at the bow). Both have full bay-view and
+surface-view sprites.
+
+### Added — Per-station bay assignments (`StationBays`)
+
+New module that holds each station's twelve-bay layout. **San Julián**
+is the showroom — the pilot's active hull in Bay 5, six other designs
+filling Bays 2/4/6/8/9/11/12, and Bays 1/3/7/10 empty so the floor
+breathes. All other stations have just the active-ship bay occupied;
+everything else is empty. The active-ship bay (index 4) always
+resolves to whichever hull the pilot is currently flying.
+
+### Changed — Ship list prices rebalanced (hundreds-of-thousands range)
+
+The placeholder 800–2500¤ prices from v0.22.16 read as a typo against
+the new "real working pilot earns enough to upgrade" arc. New list
+prices:
+
+| Hull        |       Price |
+|-------------|------------:|
+| Pact Runner |           0 |
+| Pack Mule   |   250,000¤  |
+| Falcón      |   400,000¤  |
+| Cántaro     |   350,000¤  |
+| Quarry      |   600,000¤  |
+| Cóndor      |   750,000¤  |
+| Patagonia   | 1,000,000¤  |
+
+Shipyard still does trade-in at full sticker, so the net cost is the
+difference between hulls. With a 500¤ starting wallet, every upgrade
+is now a real career milestone.
+
+---
+
 ## v0.22.22 — 2026-05-26
 
 ### Changed — Pilot Ledger no longer duplicates Reputation
