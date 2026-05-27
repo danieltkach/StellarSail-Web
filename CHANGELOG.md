@@ -8,6 +8,22 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.23.4 — 2026-05-27
+
+### Fixed — Launch altitude could go negative on [O] DESCEND
+
+Pressing `[O] DESCEND` during the ascent walked the altimeter into
+negative numbers (e.g. `ASCENT — ALT -26m / 500m`) because
+`LaunchSystem` had no pad-floor clamp — `LandingSystem.StepPhysics`
+is direction-agnostic and the existing `≤ 0` clamp is gated on
+`Mode == Landing` only.
+
+LaunchSystem now snaps altitude, ship `Position.Z`, and any downward
+`Velocity.Z` to pad level whenever altitude drops below 0. The pilot
+sits on the pad until they actually climb.
+
+---
+
 ## v0.23.3 — 2026-05-27
 
 ### Changed — Shipyard price line: one word, one number
