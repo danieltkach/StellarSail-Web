@@ -8,6 +8,29 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.23.5 — 2026-05-27
+
+### Changed — Asteroid surface: pilot spawns at the ship, must walk back to board
+
+Two behavior fixes on the EVA panel:
+
+- **Spawn** — pilot used to drop in at the top-left corner of the
+  canvas, miles from the parked hull. Now spawns immediately
+  adjacent to the ship sprite at the bottom-left (right side of the
+  ship's airlock).
+- **Re-boarding** — `[Esc] Back to ship` no longer teleports the
+  pilot in from anywhere. The pilot has to physically walk back to
+  the ship sprite first; Esc only opens the airlock when the pilot
+  is standing on or directly next to the hull. Pressing Esc from
+  too far away drops a message in the log: *"Walk back to the ship
+  first — the airlock won't pop open from here."*
+
+The bottom hint tracks the touching state live (swaps to
+`[Esc] Board the ship` only when the pilot's next to the hull, and
+to `Walk to the ship to board` otherwise).
+
+---
+
 ## v0.23.4 — 2026-05-27
 
 ### Fixed — Launch altitude could go negative on [O] DESCEND
