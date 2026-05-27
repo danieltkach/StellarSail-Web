@@ -8,6 +8,18 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.22.19 — 2026-05-26
+
+### Fixed — Station main terminal: top + bottom rule had a right-side gap
+
+The `═` line under the title and the matching one above the entrance
+hint started at `x=2` with length `innerW-4`, leaving a visible
+3-cell gap before the right border (1-cell margin on the left, 3-cell
+on the right — asymmetric). Both lines now span the full inner width
+(`x=1`, length `innerW`) so they touch both side borders cleanly.
+
+---
+
 ## v0.22.18 — 2026-05-26
 
 ### Changed — SJ city: description block is narrower and one row lower
