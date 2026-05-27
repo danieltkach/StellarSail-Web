@@ -8,6 +8,22 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.22.21 — 2026-05-26
+
+### Fixed — Nav Calc: ghosted second "RPN CALCULATOR" + mangled HISTORY on typing
+
+`RefreshCalcArea` (the no-flicker per-keystroke repaint from v0.22.13)
+was still using the pre-v0.22.15 `calcY = fY + 5`. The main draw
+moved to `fY + 4` when the two-row history pairs landed — so the
+refresh painted calc + history one row below the original, ghosting
+a second `RPN CALCULATOR  [FOCUSED]` line and stacking `HISTORY` on
+top of the most recent entry (rendering "HISTORY00 atan2").
+
+Snapped `RefreshCalcArea` to `fY + 4`; both paths share coordinates
+again.
+
+---
+
 ## v0.22.20 — 2026-05-26
 
 ### Fixed — Pilot age reverted to 28 on saves from before the "142" default
