@@ -8,6 +8,18 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.23.8 — 2026-05-27
+
+### Fixed — San Julián city: title + bottom rules extend one more char right
+
+Both `═══` lines (title at row 1 and the entrance-hint frame at
+`Height-3`) were length `innerW - 4`, leaving a 1-cell margin on the
+left and a 3-cell gap on the right. Bumped to `innerW - 3` so the
+right margin shrinks by one cell and the rules read as more
+symmetrical against the panel border.
+
+---
+
 ## v0.23.7 — 2026-05-27
 
 ### Fixed — Long EVA suffocation was damaging the *ship hull* instead of the pilot
