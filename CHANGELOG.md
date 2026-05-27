@@ -8,6 +8,39 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.23.1 — 2026-05-26
+
+### Changed — Shipyard is now reached by walking into a non-active bay
+
+Cleaner flow: walk onto the hangar floor, walk up to any bay that
+isn't yours, press Enter — the Shipyard panel pops with Marisol and
+the focused hull *already selected* (no scrolling to find it). The
+old `[Y] Walk over to the Shipyard` shortcut on Vance's dialog is
+gone; Marisol is only reached via the floor now.
+
+- `ShipyardPanel.SetFocus(design)` lets the caller pre-target a hull.
+- `HangarStripInputSystem` opens the Shipyard with `SetFocus` on
+  Enter at any non-active occupied bay.
+- `ShipyardInputSystem` Back now returns to `HangarStrip` (was
+  `HangarDetail`) so the pilot lands on the floor, not on Vance.
+- Vance's action list drops the `[Y]` line; his comment about
+  Marisol is gone.
+
+### Added — Cernícalo (armed patrol bird)
+
+Eighth hull design — a Pact-leased patrol interceptor.
+
+| Hull       | Tagline                                                                    |
+|------------|-----------------------------------------------------------------------------|
+| Cernícalo  | Armed patrol bird. Light, fast, and stings — the Pact buys them in flights.|
+
+Paints DarkMagenta. Bay-view silhouette has the canard wings and twin
+cannon hardpoints (`┤│ ╳╳╳╳ │├`). Surface sprite has the muzzles up
+front (`┤╳╳├`). List price 850,000¤ (between Cóndor and Patagonia).
+Parked in **Bay 3** at San Julián (a previously empty bay).
+
+---
+
 ## v0.23.0 — 2026-05-26
 
 ### Added — Walkable hangar floor (12 bays per station)
