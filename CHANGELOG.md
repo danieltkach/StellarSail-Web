@@ -8,6 +8,29 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.23.7 — 2026-05-27
+
+### Fixed — Long EVA suffocation was damaging the *ship hull* instead of the pilot
+
+Root cause of the v0.23.6 "clean touchdown crash" the user reported:
+`OxygenSystem` had `HullDamagePerSecond = 2.0` and when the portable
+O2 hit zero on the surface it was draining the **ship's hull** at
+that rate — by design back when the Pilot didn't have a Health
+field yet. So a long EVA on an asteroid quietly silently pitted the
+hull to 99%, then the next clean landing tipped it over.
+
+Oxygen depletion now drains `pilot.Health` (which already exists,
+0..100) at the same rate. Ship hull is left for what it should
+measure: landing/launch wear. Warning message updated to read
+*"Pilot health N/100"* instead of *"hull stressing."*
+
+The v0.23.6 fix (clean touchdown survives a battered hull) stays —
+it's the right behavior on its own — but pairing it with this
+decoupling means the *real* failure mode is now visible: long EVAs
+without an oxygen refill kill the pilot, not the hull.
+
+---
+
 ## v0.23.6 — 2026-05-27
 
 ### Fixed — Clean touchdown could still crash the ship
