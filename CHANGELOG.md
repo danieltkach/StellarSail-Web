@@ -8,6 +8,23 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.22.22 — 2026-05-26
+
+### Changed — Pilot Ledger no longer duplicates Reputation
+
+Reputation appears in the Profile tab's ACHIEVEMENTS column already;
+removed it from PILOT LEDGER (both the Profile tab's middle column
+and the Cargo tab's right-column ledger) so the same number isn't
+shown twice on the same screen. Ledger now reads:
+
+```
+PILOT LEDGER
+  Credits     <n>¤
+  Intel       <n>
+```
+
+---
+
 ## v0.22.21 — 2026-05-26
 
 ### Fixed — Nav Calc: ghosted second "RPN CALCULATOR" + mangled HISTORY on typing
