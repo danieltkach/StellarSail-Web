@@ -8,6 +8,24 @@ existing installations auto-update via Velopack on next launch.
 
 ---
 
+## v0.23.3 — 2026-05-27
+
+### Changed — Shipyard price line: one word, one number
+
+The four-label `LIST … NET … YOU … SHORT …` row was too busy for a
+glance read. Replaced with a single `TARIFF <net>¤` line, color-coded:
+
+- Green `TARIFF  ·  in your bay` when the focused hull is the pilot's.
+- Yellow `TARIFF 250,000¤` when the deal closes.
+- DarkRed `TARIFF 250,000¤   ·  short 198,817¤` when the wallet can't
+  cover it (shortfall appended).
+
+Net cost (after trade-in at full sticker) is the only figure the
+pilot actually pays, so it's the only figure shown. Numbers now
+thousand-separated (`N0`).
+
+---
+
 ## v0.23.2 — 2026-05-26
 
 ### Fixed — Shipyard bay numbers didn't match the hangar floor
